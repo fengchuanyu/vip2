@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .child-box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            color: white;
+            float: left;
+            border:1px solid black;
+        }
+        .box{
+            background-color: blue;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+        /* .clearfix{
+            clear: both;
+        } */
+        /*伪元素选择器 */
+        .clearfix::after{
+            content: "";
+            color: white;
+            clear: both;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 浮动元素会造成脱离文档流 -->
+    <div class="box clearfix">
+        <div class="child-box">1</div>
+        <div class="child-box">2</div>
+        <div class="child-box">3</div>
+        <!-- <div class="clearfix"></div> -->
+    </div>
+    <!-- <div class="box2"></div> -->
+</body>
+</html>
