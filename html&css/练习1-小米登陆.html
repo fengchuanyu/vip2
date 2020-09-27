@@ -10,6 +10,12 @@
             margin:0;
             padding: 0;
         }
+        body{
+            font-family: Helvetica,arial,"MI Lan Pro","Hiragino Sans GB","PingFang SC","Microsoft YaHei","微軟正黑體","儷黑 Pro",sans-serif;
+        }
+        a{
+            text-decoration: none;
+        }
         /* top 区域 */
         .container .top .content{
             width: 1130px;
@@ -35,13 +41,73 @@
         .container .center .login-content{
             width: 410px;
             height: 556px;
-            background-color: yellow;
+            background-color: white;
             /* float:right; */
             position: absolute;
             right: 0;
             top:32px;
             /* margin-right: 0;
             margin-left: auto; */
+        }
+        .container .nav-tabs{
+            font-size: 24px;
+            text-align: center;
+            padding: 27px 0 24px;
+        }
+        .container .nav-tabs a{
+            /* color: #f56600; */
+            color: #666;
+        } 
+        .container .nav-tabs a:hover{
+            color: #f56600;
+        }
+        .container .nav-tabs .active{
+            color: #f56600;
+        }
+        .container .nav-tabs span{
+            width: 1px;
+            height: 24px;
+            border:1px solid #e0e0e0;
+            background-color: #e0e0e0;
+            margin: 0 42px 0 42px;
+        }
+        .container .login-form .login-area{
+            width: 348px;
+            height: 448px;
+            margin: 0 auto;
+        }
+        .container .login-area input[type="text"]{
+            width: 306px;
+            height: 22px;
+            padding: 13px 16px 13px 14px;
+            outline: none;
+            margin-bottom: 18px;
+        }
+        .container .login-area input[type="button"]{
+            background-color: #ff6700;
+            width: 340px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 14px;
+            color: #fff;
+            border:0;
+        }
+        .container .login-area p{
+            color: #ff6700;
+            font-size: 14px;
+            margin-bottom: 30px;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .container .links-area{
+            text-align: center;
+        }
+        .container .links-area a{
+            color: #999;
+            font-size: 14px;
+        }
+        .container .links-area a:hover{
+            color: #ff6700;
         }
     </style>
 </head>
@@ -57,8 +123,25 @@
         <div class="center">
             <div class="content">
                 <div class="login-content">
-                    <div class="nav-tabs"></div>
-                    <div class="login-form"></div>
+                    <div class="nav-tabs">
+                        <a class="active" href="">账号登陆</a>
+                        <span class="line"></span>
+                        <a href="">扫码登陆</a>
+                    </div>
+                    <div class="login-form">
+                        <div class="login-area">
+                            <input type="text" placeholder="邮箱/手机号/小米ID">
+                            <input type="text" placeholder="密码">
+                            <input type="button" value="登录">
+                            <p>手机短信登录/注册</p>
+                            <div class="links-area">
+                                <a href="">立即注册</a>
+                                <span>|</span>
+                                <a href="">忘记密码？</a>
+                            </div>
+
+                        </div>
+                    </div>
                     <div class="other-login"></div>
                 </div>
             </div>
