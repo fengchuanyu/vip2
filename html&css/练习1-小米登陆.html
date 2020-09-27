@@ -4,15 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* css reset */
+        *{
+            margin:0;
+            padding: 0;
+        }
+        /* top 区域 */
+        .container .top .content{
+            width: 1130px;
+            margin:0 auto;
+        }
+        .container .top .top-logo{
+            width: 200px;
+            height: 98px;
+            background-image: url("https://account.xiaomi.com/static/res/7f6f2f5/account-static/respassport/acc-2014/img/mistore_logo.png");
+        }
+        /* center 区域 */
+        .container .center{
+            height: 588px;
+            background-image: url("https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/aece569d6689b4c461bb53efd9eea9c7.jpg");
+            background-position: top center;
+        }
+        .container .center .content{
+            width: 1130px;
+            height: 588px;
+            margin:0 auto;
+            position: relative;
+        }
+        .container .center .login-content{
+            width: 410px;
+            height: 556px;
+            background-color: yellow;
+            /* float:right; */
+            position: absolute;
+            right: 0;
+            top:32px;
+            /* margin-right: 0;
+            margin-left: auto; */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <!-- top 区域 -->
         <div class="top">
             <div class="content">
                 <div class="top-logo"></div>
             </div>
         </div>
-        <div class="center"></div>
+        <!-- center区域 -->
+        <div class="center">
+            <div class="content">
+                <div class="login-content">
+                    <div class="nav-tabs"></div>
+                    <div class="login-form"></div>
+                    <div class="other-login"></div>
+                </div>
+            </div>
+        </div>
         <div class="bottom"></div>
     </div>
 </body>
