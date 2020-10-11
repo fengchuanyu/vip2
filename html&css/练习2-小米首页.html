@@ -61,6 +61,35 @@
             color: #b0b0b0;
             background-color: #424242;
         }
+        .top-nav .topbar-download{
+            position: relative;
+        }
+
+        .top-nav .appcode{
+            position: absolute;
+            left: 50%;
+            margin-left: -62px;
+            width: 124px;
+            background-color: white;
+            text-align: center;
+            box-shadow: 0 1px 5px #aaa;
+        }
+        .top-nav .appcode::after{
+            content: "";
+            position: absolute;
+            top:-23px;
+            left: 50%;
+            margin-left: -15px;
+            border-top:15px solid transparent;
+            border-left:15px solid transparent;
+            border-right:15px solid transparent;
+            border-bottom:15px solid white;
+        }
+        .top-nav .appcode img{
+            width: 100px;
+            position: relative;
+            top:20px;
+        }
     </style>
     <!-- <link rel="stylesheet" href="./font/iconfont.css"> -->
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_2121574_2o8n5eq61xk.css">
@@ -90,7 +119,14 @@
                 <span>|</span>
                 <a href="javascript:void(0);">协议规则</a>
                 <span>|</span>
-                <a href="javascript:void(0);">下载app</a>
+                <a class="topbar-download" href="javascript:void(0);">下载app
+                    <div class="appcode">
+                        <img src="https://i1.mifile.cn/f/i/17/appdownload/download.png?1" alt="">
+                        <p>
+                            小米商城APP
+                        </p>
+                    </div>
+                </a>
                 <span>|</span>
                 <a href="javascript:void(0);">智能生活</a>
                 <span>|</span>
