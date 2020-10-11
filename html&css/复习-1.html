@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            background-color: blue;
+        }
+        .div1,.div2,.div3,.div4{
+            width: 200px;
+            height: 200px;
+            float: left;
+            /* display: inline-block; */
+        }
+        .div1{
+            background-color: red;
+        }
+        .div2{
+            background-color: yellow;
+        }
+        .div3{
+            background-color: black;
+        }
+        .div4{
+            background-color: green;
+        }
+        span{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+        }
+        .box2{
+            background-color: pink;
+        }
+        /* p{
+            clear: both;
+        } */
+        
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <!-- <span>1</span>
+    <span>1</span>
+    <span>1</span>
+    <img src="./image/1.jpg" alt="">
+    <img src="./image/1.jpg" alt=""> -->
+    <div class="box clearfix">
+        <div class="div1"></div>
+        <div class="div2"></div>
+    </div>
+    <div class="box2 clearfix">
+        <div class="div3"></div>
+        <div class="div4"></div>
+    </div>
+</body>
+</html>
