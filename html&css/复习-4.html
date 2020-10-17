@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .box{
+            color: red;
+        }
+        #div1{
+           color: blue; 
+        }
+        div{
+            color: black !important;
+        } */
+        .div2{
+            color: blue;
+        }
+        .div1{
+            color: red;
+        }
+        .box .div1{
+            color: yellow;
+         }
+        /* *选择器0 < 标签选择器1 < 类选择器10 < ID选择器100 < 内联样式1000 < !important10000 */
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="div1 div2">hello</div>
+    </div>
+    
+    <!-- <div class="box" id="div1" style="color: green;">hello</div> -->
+</body>
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,65 +10,95 @@
             margin:0;
         } */
         /* 公共样式 */
-        *{
-            margin:0;
+        * {
+            margin: 0;
             padding: 0;
         }
-        body{
-            font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+
+        body {
+            font: 14px/1.5 Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
         }
-        a{
+
+        a {
             text-decoration: none;
         }
-        .container{
+        li{
+            list-style: none;
+        }
+        .container {
             width: 1226px;
             height: 40px;
             margin: 0 auto;
         }
+
         /* 顶部导航 */
-        .top-banner{
+        .top-banner {
             width: 100%;
             height: 120px;
             background-image: url("./image/topbanner.jpg");
             background-position: center;
             background-size: auto 120px;
         }
-        .top-nav{
+
+        .top-nav {
             height: 40px;
             background-color: #333;
         }
-        .top-nav a{
+
+        .top-nav a {
             color: #b0b0b0;
         }
-        .top-nav span{
+
+        .top-nav span {
             color: #424242;
         }
-        .top-nav .tn-left{
+
+        .top-nav .tn-left {
             float: left;
             line-height: 40px;
         }
-        .top-nav .tn-right{
+
+        .top-nav .tn-right {
             float: right;
             line-height: 40px;
         }
-        .top-nav .user-info{
+
+        .top-nav .user-info {
             display: inline-block;
         }
-        .top-nav .topbar-cart{
+
+        .top-nav .topbar-cart {
             text-align: center;
             display: inline-block;
             width: 120px;
             height: 40px;
             color: #b0b0b0;
             background-color: #424242;
-        }
-        .top-nav .topbar-download{
             position: relative;
         }
-        .top-nav .topbar-download:hover .appcode{
+
+        .top-nav .topbar-cart:hover {
+            background-color: #fff;
+            color: #ff6700;
+        }
+
+        .top-nav .topbar-cart:hover .cart-content {
+            height: 100px;
+        }
+
+        .top-nav .topbar-cart:hover p {
+            color: #333;
+        }
+
+        .top-nav .topbar-download {
+            position: relative;
+        }
+
+        .top-nav .topbar-download:hover .appcode {
             height: 150px;
         }
-        .top-nav .appcode{
+
+        .top-nav .appcode {
             position: absolute;
             left: 50%;
             margin-left: -62px;
@@ -79,30 +110,112 @@
             overflow: hidden;
             transition: all .5s ease;
         }
-        .top-nav .topbar-download::after{
+
+        .top-nav .topbar-download::after {
             content: "";
             position: absolute;
-            top:5px;
+            top: 5px;
             left: 50%;
             margin-left: -15px;
-            border-top:15px solid transparent;
-            border-left:15px solid transparent;
-            border-right:15px solid transparent;
-            border-bottom:15px solid white;
+            border-top: 15px solid transparent;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid white;
             display: none;
         }
-        .top-nav .topbar-download:hover::after{
+
+        .top-nav .topbar-download:hover::after {
             display: block;
         }
-        .top-nav .appcode img{
+
+        .top-nav .appcode img {
             width: 100px;
             position: relative;
-            top:20px;
+            top: 20px;
+        }
+
+        .top-nav .cart-content {
+            width: 315px;
+            height: 0;
+            background-color: white;
+            box-shadow: 0 1px 5px #aaa;
+            position: absolute;
+            right: 0;
+            top: 40px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .top-nav .cart-content p {
+            height: 100px;
+            line-height: 100px;
+        }
+
+        /* top-header */
+        .top-header .container {
+            height: 100px;
+        }
+
+        .top-header .th-left {
+            float: left;
+            height: 55px;
+            width: 55px;
+            background-color: #ff6700;
+            margin-top: 22px;
+        }
+
+        .top-header .th-center {
+            float: left;
+            width: 850px;
+            height: 100px;
+        }
+        .top-header .th-center ul{
+            padding-left:185px;
+        }
+        .top-header .th-center li{
+            float: left;
+            height: 100px;
+            line-height: 100px;
+            font-size: 16px;
+            color: #333;
+            padding: 0 10px;
+        }
+        .top-header .th-center li:hover{
+            color: #ff6700;
+            cursor: pointer;
+        }
+
+        .top-header .th-right {
+            float: right;
+            width: 300px;
+            height: 100px;
+            margin-top: 25px;
+        }
+        .top-header .th-right .input-box{
+            border:1px solid #e0e0e0;
+            width: 300px;
+            height: 50px;
+        }
+        .top-header .th-right input{
+            height: 50px;
+            width: 220px;
+            border: none;
+            padding: 0 10px;
+            outline: none;
+        }
+        .top-header .th-right .search-btn{
+            float: right;
+            width: 50px;
+            height: 50px;
+            border-left: 1px solid #e0e0e0;
+            text-align: center;
+            line-height: 50px;
         }
     </style>
     <!-- <link rel="stylesheet" href="./font/iconfont.css"> -->
-    <link rel="stylesheet" href="http://at.alicdn.com/t/font_2121574_2o8n5eq61xk.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_2121574_kionguyy6ph.css">
 </head>
+
 <body>
     <div class="top-banner">
 
@@ -152,9 +265,38 @@
                 <div class="topbar-cart">
                     <i class="iconfont icon-cart"></i>
                     购物车（0）
+                    <div class="cart-content">
+                        <p>
+                            购物车中还没有商品，赶紧选购吧！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top-header">
+        <div class="container">
+            <div class="th-left">
+                <div class="th-logo"></div>
+            </div>
+            <div class="th-center">
+                <ul>
+                    <li>小米手机</li>
+                    <li>Redmi 红米</li>
+                    <li>电视</li>
+                    <li>笔记本</li>
+                </ul>
+            </div>
+            <div class="th-right">
+                <div class="input-box">
+                    <input type="text" placeholder="家电">
+                    <div class="search-btn"> 
+                        <i class="iconfont icon-search"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
