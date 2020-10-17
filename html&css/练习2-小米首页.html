@@ -235,9 +235,88 @@
         .th-left:hover .th-logo{
             transform: translateX(-55px);
         }
+        /* top-swiper */
+        .top-swiper .container{
+            height: 460px;
+            position: relative;
+        }
+        .top-swiper .swiper-img{
+            width: 100%;
+            height: 460px;
+            background-image: url("./image/bg.jpg");
+            background-size: contain;
+        }
+        .top-swiper .swiper-nav{
+            width: 234px;
+            height: 460px;
+            background: rgba(105,101,101,.6);
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+        .top-swiper .swiper-nav ul{
+            padding: 20px 0;
+        }
+        .top-swiper .swiper-nav li{
+            font-size: 14px;
+            color: white;
+            padding-left: 30px;
+            position: relative;
+            height: 42px;
+            line-height: 42px;
+        }
+        .top-swiper .swiper-nav li:hover{
+            background-color: #ff6700;
+            cursor: pointer;
+        }
+        .top-swiper .swiper-nav i{
+            position: absolute;
+            right: 20px;
+            top:0px;
+        }
+        .top-swiper .arr-btn .ab-left{
+            width: 40px;
+            height: 66px;
+            position: absolute;
+            left: 234px;
+            top:50%;
+            margin-top: -33px;
+        }
+        .top-swiper .arr-btn .ab-right{
+            width: 40px;
+            height: 66px;
+            position: absolute;
+            right: 0;
+            top:50%;
+            margin-top: -33px;
+        }
+        .top-swiper .arr-btn i{
+            color: #aaa;
+            font-size: 40px;
+        }
+        .top-swiper .arr-btn div:hover{
+            background-color: rgba(0,0,0,.5);
+        }
+        .top-swiper .arr-btn div:hover i{
+            color: white;
+        }
+        .top-swiper .swiper-point{
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+        .top-swiper .swiper-point li{
+            float: left;
+            margin: 0 5px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            border:2px solid hsla(0,0%,100%,.3);
+            background-color: rgba(0,0,0,.4);
+        }
     </style>
     <!-- <link rel="stylesheet" href="./font/iconfont.css"> -->
-    <link rel="stylesheet" href="http://at.alicdn.com/t/font_2121574_kionguyy6ph.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_2121574_1gu1hvq4rjb.css">
 </head>
 
 <body>
@@ -320,6 +399,48 @@
                     <div class="search-btn"> 
                         <i class="iconfont icon-search"></i>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top-swiper">
+        <div class="container">
+            <div class="swiper-img"></div>
+            <div class="swiper-nav">
+                <ul>
+                    <li>
+                        笔记本 显示器
+                        <i class="iconfont icon-arrr"></i>
+                    </li>
+                    <li>
+                        笔记本 显示器
+                        <i class="iconfont icon-arrr"></i>
+                    </li>
+                    <li>
+                        笔记本 显示器
+                        <i class="iconfont icon-arrr"></i>
+                    </li>
+                    <li>
+                        笔记本 显示器
+                        <i class="iconfont icon-arrr"></i>
+                    </li>
+                </ul>
+            </div>
+            <div class="swiper-control">
+                <div class="arr-btn">
+                    <div class="ab-left">
+                        <i class="iconfont icon-arrl"></i>
+                    </div>
+                    <div class="ab-right">
+                        <i class="iconfont icon-arrr"></i>
+                    </div>
+                    <ul class="swiper-point">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
                 </div>
             </div>
         </div>
