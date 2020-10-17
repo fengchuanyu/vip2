@@ -18,5 +18,17 @@
     <input type="password" placeholder="密码">
     <input type="button" value="按钮">
     <button>按钮2</button>
+    <script>
+        var name = "this Window";
+        var object = {
+            name:"myObject",
+            getNameFunc:function(){
+                return function(){
+                    return this.name
+                }
+            }
+        }
+        console.log(object.getNameFunc()());
+    </script>
 </body>
 </html>

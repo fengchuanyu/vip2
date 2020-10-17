@@ -64,7 +64,9 @@
         .top-nav .topbar-download{
             position: relative;
         }
-
+        .top-nav .topbar-download:hover .appcode{
+            height: 150px;
+        }
         .top-nav .appcode{
             position: absolute;
             left: 50%;
@@ -73,17 +75,24 @@
             background-color: white;
             text-align: center;
             box-shadow: 0 1px 5px #aaa;
+            height: 0;
+            overflow: hidden;
+            transition: all .5s ease;
         }
-        .top-nav .appcode::after{
+        .top-nav .topbar-download::after{
             content: "";
             position: absolute;
-            top:-23px;
+            top:5px;
             left: 50%;
             margin-left: -15px;
             border-top:15px solid transparent;
             border-left:15px solid transparent;
             border-right:15px solid transparent;
             border-bottom:15px solid white;
+            display: none;
+        }
+        .top-nav .topbar-download:hover::after{
+            display: block;
         }
         .top-nav .appcode img{
             width: 100px;
