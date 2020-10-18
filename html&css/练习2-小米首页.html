@@ -398,7 +398,6 @@
         }
         .page-main .home-flashsale .flashsale-content{
             height: 340px;
-            background-color: yellow;
         }
         .flashsale-title h2{
             float: left;
@@ -435,15 +434,90 @@
             padding-top: 39px;
             background-color: #f1eded;
             float: left;
+            box-sizing: border-box;
+            text-align: center;
+            border-top:1px solid #e53935;
         }
         .flashsale-content .fc-right{
             width: 978px;
             height: 340px;
-            background-color: red;
             float: right;
         }
-        .flashsale-content .fc-left{
+        .flashsale-content .fc-left .round{
+            font-size: 21px;
+            color: #ef3a3b;
+            padding-top: 15px;
+        }
+        .flashsale-content .fc-left img{
+            margin:25px 0;
+        }
+        .flashsale-content .fc-left .desc{
+            color: rgba(0,0,0,.54);
+            font-size: 15px;
+        }
+        .flashsale-content .countdown{
+            margin-top: 28px;
+        }
+        .flashsale-content .countdown span{
+            display: inline-block;
+            width: 46px;
+            height: 46px;
+            background-color: #605751;
+            color: white;
+            font-size: 24px;
+            line-height: 46px;
+        }
+        .flashsale-content .countdown i{
+            font-style: normal;
+            line-height: 46px;
+            color: #605751;
+            font-size: 28px;
+        }
+        .flashsale-content .fc-right li{
+            width: 234px;
+            height: 341px;
+            background-color: #fff;
+            float: left;
+            margin-right: 14px;
             text-align: center;
+            padding-top: 39px;
+            box-sizing: border-box;
+            transition: all .5s ease;
+        }
+        .flashsale-content .fc-right li:hover{
+            box-shadow: 0 15px 30px rgba(0,0,0,.1);
+            transform: translateY(-2px);
+        }
+        .flashsale-content .fc-right li:first-child{
+            border-top: 1px solid #ffac13;
+        }
+        .flashsale-content .fc-right li:last-child{
+            margin-right: 0;
+        }
+        .flashsale-content .fc-right h3{
+            margin: 0 20px 3px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #212121;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .flashsale-content .fc-right .desc{
+            font-size: 12px;
+            color: #b0b0b0;
+            margin: 0 20px 12px;
+        }
+        .flashsale-content .fc-right img{
+            width: 160px;
+            height: 160px;
+        }
+        .flashsale-content .price span{
+            color: #ff6700;
+        }
+        .flashsale-content .price del{
+            color: #b0b0b0;
         }
     </style>
     <!-- <link rel="stylesheet" href="./font/iconfont.css"> -->
@@ -687,7 +761,62 @@
                             <span>00</span>
                         </div>
                     </div>
-                    <div class="fc-right"></div>
+                    <div class="fc-right">
+                        <ul>
+                            <li>
+                                <div class="content">
+                                    <div class="thumb">
+                                        <img src="./image/s1.png" >
+                                    </div>
+                                    <h3>米家互联网洗烘一体机10Kg 白色白色白色</h3>
+                                    <div class="desc">烘干除菌率达99.9%</div>
+                                    <div class="price">
+                                        <span>1999元</span>
+                                        <del>2299</del>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <div class="thumb">
+                                        <img src="./image/s1.png" >
+                                    </div>
+                                    <h3>米家互联网洗烘一体机10Kg 白色</h3>
+                                    <div class="desc">烘干除菌率达99.9%</div>
+                                    <div class="price">
+                                        <span>1999元</span>
+                                        <del>2299</del>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <div class="thumb">
+                                        <img src="./image/s1.png" >
+                                    </div>
+                                    <h3>米家互联网洗烘一体机10Kg 白色</h3>
+                                    <div class="desc">烘干除菌率达99.9%</div>
+                                    <div class="price">
+                                        <span>1999元</span>
+                                        <del>2299</del>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <div class="thumb">
+                                        <img src="./image/s1.png" >
+                                    </div>
+                                    <h3>米家互联网洗烘一体机10Kg 白色</h3>
+                                    <div class="desc">烘干除菌率达99.9%</div>
+                                    <div class="price">
+                                        <span>1999元</span>
+                                        <del>2299</del>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
