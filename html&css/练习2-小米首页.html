@@ -314,6 +314,77 @@
             border:2px solid hsla(0,0%,100%,.3);
             background-color: rgba(0,0,0,.4);
         }
+        /* home-hero */
+        .home-hero{
+            margin-top: 14px;
+        }
+        .home-hero .container{
+            height: 170px;
+        }
+        .home-hero  .hh-left{
+            width: 234px;
+            height: 170px;
+            background-color: #5f5750;
+            float: left;
+            overflow: hidden;
+        }
+        .home-hero  .hh-left li{
+            float: left;
+            width: 70px;
+            height: 82px;
+            padding: 0 3px;
+            text-align: center;
+            position: relative;
+        }
+        .home-hero  .hh-left li::before{
+            content: "";
+            display: block;
+            width: 64px;
+            height: 1px;
+            background: #665e57;
+            position: absolute;
+            top: -1px;
+            left: 6px;
+        }
+        .home-hero  .hh-left li::after{
+            content: "";
+            display: block;
+            width: 1px;
+            height: 70px;
+            background: #665e57;
+            position: absolute;
+            top: 6px;
+            left: 0;
+        }
+        .home-hero  .hh-left img{
+            display: block;
+            width: 24px;
+            height: 24px;
+            margin: 0 auto 4px;
+        }
+        .home-hero  .hh-left a{
+            color: white;
+            font-size: 12px;
+            opacity: .7;
+            padding-top: 18px;
+            display: block;
+        }
+        .home-hero  .hh-right{
+            width: 978px;
+            height: 170px;
+            float: right;
+        }
+        .home-hero  .hh-right li{
+            float: left;
+            margin-left: 15px;
+        }
+        .home-hero  .hh-right li:first-child{
+            margin-left: 0;
+        }
+        .home-hero  .hh-right img{
+            width: 316px;
+            height: 170px;
+        }
     </style>
     <!-- <link rel="stylesheet" href="./font/iconfont.css"> -->
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_2121574_1gu1hvq4rjb.css">
@@ -445,7 +516,63 @@
             </div>
         </div>
     </div>
-    
+    <div class="home-hero">
+        <div class="container">
+            <div class="hh-left">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <img src="./image/clock.png">
+                            小米秒杀
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <img src="./image/clock.png">
+                            小米秒杀
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <img src="./image/clock.png">
+                            小米秒杀
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <img src="./image/clock.png">
+                            小米秒杀
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <img src="./image/clock.png">
+                            小米秒杀
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <img src="./image/clock.png">
+                            小米秒杀
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="hh-right">
+                <ul>
+                    <li>
+                        <img src="./image/hero.jpg" >
+                    </li>
+                    <li>
+                        <img src="./image/hero.jpg" >
+                    </li>
+                    <li>
+                        <img src="./image/hero.jpg" >
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
