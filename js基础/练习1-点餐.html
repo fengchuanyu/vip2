@@ -7,17 +7,26 @@
 </head>
 <body>
     <script>
-        // var a = window.prompt("test");
-        // var b = parseInt(a) + 10;
-        // var b = a*1 + 10
-        // console.log(b);
-        
-        // var a = window.confirm("确定？")
-        // console.log(a);
+        var foodList = ["宫保鸡丁","土豆丝","锅包肉","肉段烧茄子","凉菜","酸菜土豆丝","包子","面条","不吃了","随便"];
+        var isContinue = window.confirm("是否需要点餐?");
+        if(isContinue){
+            var num = window.prompt("请输入用餐人数");
+            num *= 1; // num = num * 1;
+            var person = [];
+            for(var i=0;i<num;i++){
+               var thisName =  window.prompt("请输入第"+(i+1)+"个人的名字");
+               person.push(thisName);
+            }
+            for(var j=0;j<person.length ;j++){
+                var ran = parseInt( Math.random()*10);
+                person[j] = person[j]+ "吃" + foodList[ran];
+            }
+            // console.log(person);
+            console.log(person);
 
-        // var a = Math.random() * 10;
-        
-        // console.log(parseInt(a));
+        }else{
+            console.log("取消");
+        }
 
 
 
