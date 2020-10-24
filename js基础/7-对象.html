@@ -11,11 +11,16 @@
         var person = {
             name:"小明",
             sex:"男",
-            test:"test"
+            test:"test",
+            talk:function(str){
+                console.log(str);
+            }
         }
-        person.school = "黑大";
-        delete person.test;
-        console.log(person);
+        // person.school = "黑大";
+        // delete person.test;
+        // console.log(person);
+
+        person.talk("hello world");
 
         // var person2 = person;
         // person.name = "小刚"
