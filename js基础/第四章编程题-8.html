@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var a =1234;
+        // var arr = [1,2,3,4,5];
+        // console.log(arr.join("-"));
+        // console.log(a.split("-"));
+
+        
+        // console.log(a.toString().split(""));
+
+        // console.log( a/1000);
+
+        // var a1 = ;
+        
+        // var b = 12.5;
+        // // console.log(parseInt(b));
+        // console.log(Math.floor(b));
+        // console.log(Math.ceil(b));
+        // console.log(Math.round(b));
+
+
+        for(var i=1000;i<10000;i++){
+            var a2 = Math.floor(i/10)%10;
+            var a3 = Math.floor(i/100)%10;
+            var a4 = Math.floor(i/1000);
+            if(a3+a2 == a4 && i%13 == 0){
+                console.log(i);
+            }
+        }
+    </script>
+</body>
+</html>
