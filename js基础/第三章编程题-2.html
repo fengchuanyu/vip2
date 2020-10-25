@@ -8,10 +8,14 @@
 <body>
     <script>
         var timer = new Date();
-        console.log(timer);
-        console.log(timer.getFullYear());
-        console.log(timer.getMonth());
-        
+        var year = timer.getFullYear();
+
+        if((year%4==0 && year%100!=0) || year%400==0){
+            console.log("当前为闰年");
+        }else{
+            console.log("当前不是闰年");
+        }
+
     </script>
 </body>
 </html>
