@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [];
+        var sum = 0;
+        var avg = 0;
+        for(var i=0;i<7;i++){
+            var count = window.prompt("请输入第"+(i+1)+"门成绩");
+            count = parseInt(count)
+            arr.push(count)
+        }
+        
+        for(var j=0;j<arr.length;j++){
+            sum += arr[j];
+            if(arr[j]<60){
+                console.log(arr[j]);
+            }
+        }
+        console.log("sum="+sum);
+        console.log("avg="+sum/7);
+    </script>
+</body>
+</html>

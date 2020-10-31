@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function IsLeapYear(year){
+            var months = [31,28,31,30,31,30,31,31,30,31,30,31];
+            if(year%4==0 && year%100!=0 || year%400 == 0){
+                months[1] = 29;
+            }
+            return months
+       }
+
+       function DayOfYear(y,m,d){
+            var sum = 0; 
+            var thisMonths = IsLeapYear(y);
+            for(var i=0;i<m-1;i++){
+                sum += thisMonths[i];
+            }
+            console.log(sum + d);
+       }
+       DayOfYear(2020,10,15);
+    </script>
+</body>
+</html>

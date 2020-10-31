@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       var str = "1abc23def4";
+       var arr = str.split("");
+       var res = "";
+       for(var i=0;i<arr.length;i++){
+            // if("0" <= arr[i] && "9" >= arr[i]){
+            //     console.log(arr[i]);
+            // } 
+            if(!isNaN(arr[i])){
+                res +=arr[i]
+            }
+       }
+       console.log(res);
+
+    </script>
+</body>
+</html>
