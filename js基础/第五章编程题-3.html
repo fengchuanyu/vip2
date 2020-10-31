@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var res = 0;
+        var arr = [];
+        for(var i=1;i<1000;i++){
+            if(i%3==0 && i%5==0 && i%7==0){
+                arr.push(i);
+                // res++;
+                // document.write(i)
+                // document.write("&nbsp;")
+            }
+            // if(res%6==0){
+            //     document.write("<br/>")
+            // }
+        }
+        for(var j=0;j<arr.length;j++){
+            document.write(arr[j])
+            document.write("&nbsp;")
+            if((j+1)%6 == 0){
+                document.write("<br/>")
+            }
+        }
+    </script>
+</body>
+</html>

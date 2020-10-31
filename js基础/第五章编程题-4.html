@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var arr = [];
+        function foo(num){
+            for(var i=2;i<num;i++){
+                if(num%i==0){
+                    return false;
+                }
+            }
+            return true;
+        }
+        for(var i=100;i<1000;i++){
+            if(foo(i)){
+                arr.push(i)
+            }
+        }
+
+        console.log(arr);
+
+
+        // var arr = [];
+        // var flag = true;
+
+        // for(var i=100;i<1000;i++){
+        //     for(var j =2;j<i;j++){
+        //         if(i%j==0){
+        //             flag = false;
+        //             break;
+        //         }
+        //     }
+        //     if(flag){
+        //         arr.push(i);
+        //     }
+        //     flag = true;
+        // }
+        // console.log(arr);
+
+
+        // for(var i=0;i<10;i++){
+        //     for( var j=0;j<10;j++){
+        //         if(j<5){
+        //             console.log(j);
+        //         }else{
+        //             break;
+        //         }
+        //     }
+        //     console.log(i);
+        // }
+    </script>
+</body>
+</html>
