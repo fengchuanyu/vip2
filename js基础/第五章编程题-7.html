@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1 1 2 3 5 8
+
+        // function fibonacci(n){
+        //     var a = 1; // 前两项
+        //     var b = 1; // 前一项
+        //     if(n<3){
+        //         return 1
+        //     }else{
+        //         for(var i=3;i<n;i++){
+        //             b = a + b;
+        //             a = b - a;
+        //         }
+        //         return a+b;
+        //     }
+        // }
+        // console.log(fibonacci(6));
+        
+
+        function fibonacci(n){
+            if(n<3){
+                return(1)
+            }else{
+                return fibonacci(n-1) + fibonacci(n-2);
+            }
+        }
+        
+        console.log(fibonacci(6));
+    </script>
+</body>
+</html>

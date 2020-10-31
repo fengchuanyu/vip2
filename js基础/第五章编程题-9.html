@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var num = Math.random() * 9 +1;
+        // console.log(Math.floor(num));
+        function foo(){
+            for(var i=0;i<3;i++){
+                var num = Math.floor(Math.random() * 9) +1;
+                if(num == 8){
+                    return true;
+                }
+            }
+            return false
+        }
+
+        var win = 0;
+        for(var i=0;i<10;i++){
+            // if(foo()){
+            //     win++;
+            // }
+            foo() && win++;
+        }
+        console.log(win/10);
+
+    </script>
+</body>
+</html>
