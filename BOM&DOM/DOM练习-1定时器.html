@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .box{
+            text-align: center;
+            width: 400px;
+            height: 400px;
+            background-color: #ddd;
+            /* margin:0 auto; */
+            /* position: absolute; */
+            position: fixed;
+            top:50%;
+            left: 50%;
+            margin-top:-200px;
+            margin-left: -200px;
+            border-radius: 10px;
+            box-shadow: 1px 1px 5px #aaa;
+        }
+        #btn{
+            background-color: black;
+            border: 0;
+            color: white;
+            outline: none;
+            padding: 10px 30px;
+            border-radius: 10px;
+            font-size: 26px;
+        }
+        #num{
+            margin-top: 130px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1 id="num">100</h1>
+        <button id="btn">开始</button>
+    </div>
+    <script>
+        var oNum = document.getElementById("num");
+        var oBtn = document.getElementById("btn");
+        var _num = 100;
+        var timer = null;
+        oBtn.onclick = function(){
+            if(oBtn.innerText == "开始"){
+                oBtn.innerText = "暂停";
+                timer = setInterval(function(){
+                    // console.log(--_num);
+                    oNum.innerText = --_num
+                },1000);
+            }else{
+                oBtn.innerText = "开始";
+                // console.log(timer);
+                clearInterval(timer);
+            }
+        }
+
+
+        //作用域链
+        // var a = "123"
+        // oBtn.onclick = function(){
+        //     // var a = 10;
+        //     console.log(a);
+        // }
+
+        
+        // oBtn.onclick = function(){
+        //     var a = 1;
+        //     var b = ++a;
+        //     console.log(b);
+        // }
+
+    </script>
+</body>
+</html>
