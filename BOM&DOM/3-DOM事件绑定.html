@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">hello</div>
+    <script>
+        var oBox = document.getElementById("box");
+
+        // 事件源  事件处理函数  事件对象
+        // oBox.onclick = function(event){
+        //     console.log("hello");
+        // }
+        // oBox.onclick = function(event){
+        //     console.log("world");
+        // }
+
+        // var a = 10;
+        // var a = 20;
+
+        oBox.addEventListener("click",function(evnet){
+            console.log("hello");
+        })
+        oBox.addEventListener("click",function(evnet){
+            console.log("world");
+        })
+
+
+    </script>
+</body> 
+</html>
