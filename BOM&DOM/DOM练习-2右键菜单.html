@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .mosk{
+            /* width: 100%;
+            height: 100%; */
+            position: fixed;
+            top:0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,.3);
+            display: none;
+        }
+        ul{
+            width: 200px;
+            height: 300px;
+            background-color: #fff;
+            position: fixed;
+            z-index: 10;
+            display: none;
+        }
+        li{
+            list-style: none;
+            border-bottom: 1px solid gray;
+            padding:10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mosk"></div>
+    <ul id="menu-list">
+        <li>菜单一</li>
+        <li>菜单二</li>
+        <li>菜单三</li>
+        <li>菜单四</li>
+    </ul>
+    <script>
+        var oMosk = document.getElementsByClassName("mosk")[0];
+        var oMenuList = document.getElementById("menu-list");
+        var oDom = document.documentElement;
+        // console.log(oDom);
+        oDom.oncontextmenu = function(event){
+            console.log(event.clientX,event.clientY);
+            oMenuList.style.display = "block";
+            oMosk.style.display = "block";
+            oMenuList.style.top = event.clientY + "px";
+            oMenuList.style.left = event.clientX + "px";
+            event.preventDefault();
+        }
+        oMosk.onclick = function(){
+            oMenuList.style.display = "none";
+            oMosk.style.display = "none";
+        }
+    </script>
+</body>
+</html>
