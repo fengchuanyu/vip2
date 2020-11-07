@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #box{
+            color: red;
+        } */
+        div{
+
+        }
+    </style>
+</head>
+<body>
+    <!-- <div style="color: blue;font-size: 40px;">hello world</div>
+     -->
+    <!-- <div>你好</div> -->
+    <div>hello world</div>
+    <script>
+        var oBox = document.getElementsByTagName("div");//HTMLCollection 类数组
+        console.log(oBox[0]);
+        oBox[0].style.color = "red";
+        oBox[0].style.fontSize = "40px";
+    </script>
+</body>
+</html>
