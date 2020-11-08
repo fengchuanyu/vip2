@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="test"> hello world!</div>
+    <button id="btn">button</button>
+    <script>
+        var oBtn = document.getElementById("btn");
+        var oBox = document.getElementById("box");
+        oBtn.onclick = function(){
+            // oBox.setAttribute()
+            // var a = "active"
+            // oBox.className = "test " + a
+            oBox.classList.remove("test");
+            oBox.classList.add("active");
+        }
+    </script>
+</body>
+</html>
