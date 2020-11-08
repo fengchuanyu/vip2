@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .box{
+            width: 600px;
+            border:1px solid black;
+            margin: 100px auto;
+        }
+        .big-img{
+            text-align: center;
+        }
+        .small-img{
+            border-top: 1px solid black;
+        }
+        .small-img img{
+            width: 120px;
+        }
+        .small-img li{
+            float: left;
+            width: 148px;
+            border-right: 1px solid black;
+            text-align: center;
+        }
+        .small-img li:last-child{
+            border-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="big-img">
+            <img src="./img/slider1.jpg">
+        </div>
+        <div class="small-img">
+            <ul class="clearfix">
+                <li>
+                    <img src="./img/slider1.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./img/slider2.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./img/slider3.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./img/slider4.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+    </div> 
+    <script>
+        var bigImgContent = document.getElementsByClassName("big-img")[0];
+        var bigImg = bigImgContent.getElementsByTagName("img")[0];
+        var smallImg = document.getElementsByClassName("small-img")[0].getElementsByTagName("img");
+
+        for(var i=0;i<smallImg.length;i++){
+            smallImg[i].onmouseenter = function(){
+                // console.log(this.getAttribute("src"));
+                bigImg.setAttribute("src",this.getAttribute("src"))
+            }
+        }
+    </script>
+</body>
+</html>
