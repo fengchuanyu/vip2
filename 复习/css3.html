@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*  *选择器0 < 元素选择器1 < 类选择器10  < id选择器100 < 内联样式1000 < !important10000 */
+        .parent .div2{
+            color: blue;
+        }
+        /* .div1{
+            color: blue;
+        } */
+        .parent .div2{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="div1">hello
+            <div class="div2">世界</div>
+        </div>
+        <div class="div1 div2" id="box">world</div>
+        <div>你好</div>
+    </div>
+
+</body>
+
+</html>

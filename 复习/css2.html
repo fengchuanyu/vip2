@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*  *选择器 < 元素选择器 < 元素选择器  < id选择器 < 内联样式 < !important */
+        
+        *{
+            color: red !important;
+        }
+        div{
+            color: green;
+        }
+        .div1{
+            color: purple;
+        }
+        #box{
+            color: royalblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">hello</div>
+    <div class="div1 div2" id="box" style="color:yellow;">world</div>
+    <div>你好</div>
+</body>
+</html>
