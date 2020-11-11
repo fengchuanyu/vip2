@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+        }
+        /* css 盒模型 content padding border margin */
+        /* box-sizing: content-box;标准盒模型 元素大小 = content + padding + border */
+        /* box-sizing: border-box; 怪异盒模型 元素大小 = content */
+
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border:2px solid black;
+            /* border-width: 2px;
+            border-style: solid;
+            border-color: black; */
+            margin:10px;
+            padding:10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div>hello</div>
+</body>
+
+</html>
