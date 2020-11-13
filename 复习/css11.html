@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .box{
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            /* margin-left:auto;
+            margin-right: auto; */
+            margin: 100px auto;
+            border:1px solid black;
+            position: relative;
+        }
+        .div1{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            /* margin-top: 100px;
+            margin-left: 100px; */
+            /* position: relative;
+            top:100px; */
+            position: absolute;
+            /* 相对于最近已经定位（除了static以外）的祖先元素 */
+            top:100px;
+            left: 100px;
+            
+        }
+       .box2{
+           width: 100px;
+           height: 100px;
+           background-color: green;
+           position: fixed;
+           bottom: 100px;
+           right: 100px;
+       }
+       body{
+           height: 10000px;
+       }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="box">
+            <div class="div1"></div>
+        </div>
+    </div>
+    
+    <div class="box2"></div>
+</body>
+</html>
