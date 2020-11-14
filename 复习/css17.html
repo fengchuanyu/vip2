@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1{
+           width: 100px;
+           height: 100px;
+           background-color: red;
+           /* display: none; */
+           /* opacity: 0; */
+           /* visibility: hidden; */
+        }
+        .div2{
+           width: 100px;
+           height: 100px;
+           background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <script>
+        var oDiv1 = document.getElementsByClassName("div1")[0];
+        oDiv1.onclick = function(){
+            console.log("come");
+        }
+    </script>
+</body>
+</html>
