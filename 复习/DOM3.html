@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="test">hello</div>
+    <button id="btn">btn</button>
+    <script>
+        var oDiv = document.getElementById("test");
+        var oBtn = document.getElementById("btn");
+        // oDiv.onclick = function () {
+        //     console.log("123");
+        // }
+        // oBtn.onclick = function(){
+        //     oDiv.onclick = null;
+        // }
+        // oDiv.onclick = function () {
+        //     console.log("abc");
+        // }
+
+        
+        
+        function foo(){
+            console.log(123);
+        }
+        oBtn.onclick = function () {
+            oDiv.removeEventListener("click", foo)
+        }
+        oDiv.addEventListener("click", foo)
+        // oDiv.addEventListener("click", function () {
+        //     console.log("abc")
+        // })
+
+    </script>
+</body>
+
+</html>
