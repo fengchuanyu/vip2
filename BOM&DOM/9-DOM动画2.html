@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 50px;
+            border:2px solid black;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .content{
+            width: 0;
+            height: 50px;
+            background-color: blue;
+        }
+        #inner-text{
+            position: absolute;
+            left: 0;
+            top:10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="content"></div>
+        <div id="inner-text">0%</div>
+    </div>
+    <button id="btn">start</button>
+    <script>
+        var oContent = document.getElementsByClassName("content")[0];
+        var oInnerText = document.getElementById("inner-text");
+        var oBtn = document.getElementById("btn");
+        var num = 0;
+        function run(){
+            if(oContent.offsetWidth<300){
+                oInnerText.innerText = ++num + "%";
+                oContent.style.width = oContent.offsetWidth + 3 + "px";
+                requestAnimationFrame(run);
+            }
+        }
+
+        oBtn.onclick = function(){
+            requestAnimationFrame(run);
+        }
+    </script>
+</body>
+</html>
