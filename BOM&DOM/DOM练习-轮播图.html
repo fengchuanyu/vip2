@@ -99,18 +99,49 @@
     <script>
         var numBtn = document.getElementsByClassName("right-btn")[0].getElementsByTagName("li");
         var imgList = document.getElementsByClassName("img-bar")[0].getElementsByTagName("li");
-
+        var arrBtn = document.getElementsByClassName("left-btn")[0].getElementsByTagName("li");
+        var nowIndex = 0;
+       
+        //数字按钮事件 及 添加索引    
         for(var i=0;i<numBtn.length;i++){
             numBtn[i].index = i;
             numBtn[i].onmouseenter = function(){
-                for(var j=0;j<numBtn.length;j++){
-                    numBtn[j].className = "";
-                    imgList[j].className = "";
-                }
-                this.className = "active";
-                imgList[this.index].className = "active";
+                changeImg(this.index);
             }
         }
+
+        // 切换图片
+        function changeImg(index){
+            // 处理索引越界问题
+            if(index==5){
+                index = 0;
+            }else if(index==-1){
+                index = 4;
+            }
+            // index = Math.abs(index%5);
+
+            // 移除所有图片和按钮的选中效果
+            for(var j=0;j<numBtn.length;j++){
+                numBtn[j].className = "";
+                imgList[j].className = "";
+            }
+            // 给相应的索引的图片加上选中效果
+            imgList[index].className = "active";
+            // 给相应的数字按钮加上选中效果
+            numBtn[index].className = "active";
+            nowIndex = index;
+        }
+        //向右按钮
+        arrBtn[1].onclick = function(){
+            changeImg(nowIndex + 1);
+        }
+        //向左按钮
+        arrBtn[0].onclick = function(){
+            changeImg(nowIndex - 1);
+        }
+
+        // onmouseenter;
+        // onmouseleave;
     </script>
 </body>
 </html>
