@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+
+        body{
+            background-color: #000;
+        }
+        .box{
+            width: 490px;
+            height: 170px;
+            border:5px solid white;
+            margin: 0 auto;
+            position: relative;
+        }
+        .img-bar li{
+            display: none;
+        }
+        .img-bar .active{
+            display: block;
+        }
+        .btn-bar{
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+        }
+        .btn-bar li{
+            color: white;
+            float: left;
+            background-color: #f90;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            margin:0 3px;
+        }
+        .btn-bar .left-btn{
+            float: left;
+        }
+        .btn-bar .right-btn{
+            float: right;
+        }
+        .btn-bar .active{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="img-bar">
+            <ul>
+                <li class="active">
+                    <img src="./img/01.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./img/02.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./img/03.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./img/04.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./img/05.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="btn-bar">
+            <div class="left-btn">
+                <ul>
+                    <li>&lt;</li>
+                    <li>&gt;</li>
+                </ul>
+            </div>
+            <div class="right-btn">
+                <ul>
+                    <li class="active">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        var numBtn = document.getElementsByClassName("right-btn")[0].getElementsByTagName("li");
+        var imgList = document.getElementsByClassName("img-bar")[0].getElementsByTagName("li");
+
+        for(var i=0;i<numBtn.length;i++){
+            numBtn[i].index = i;
+            numBtn[i].onmouseenter = function(){
+                for(var j=0;j<numBtn.length;j++){
+                    numBtn[j].className = "";
+                    imgList[j].className = "";
+                }
+                this.className = "active";
+                imgList[this.index].className = "active";
+            }
+        }
+    </script>
+</body>
+</html>
