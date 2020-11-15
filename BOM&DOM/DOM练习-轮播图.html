@@ -97,10 +97,12 @@
         </div>
     </div>
     <script>
+        var oBox = document.getElementsByClassName("box")[0];
         var numBtn = document.getElementsByClassName("right-btn")[0].getElementsByTagName("li");
         var imgList = document.getElementsByClassName("img-bar")[0].getElementsByTagName("li");
         var arrBtn = document.getElementsByClassName("left-btn")[0].getElementsByTagName("li");
         var nowIndex = 0;
+        var timer = undefined;
        
         //数字按钮事件 及 添加索引    
         for(var i=0;i<numBtn.length;i++){
@@ -140,8 +142,21 @@
             changeImg(nowIndex - 1);
         }
 
-        // onmouseenter;
-        // onmouseleave;
+        // 定时轮播函数
+        function paly(){
+            timer = setInterval(function(){
+                changeImg(nowIndex + 1);
+            },1000);
+        }
+        paly();
+        // 鼠标移入停止轮播
+        oBox.onmouseenter = function(){
+            clearInterval(timer);
+        }
+        // 鼠标移出开始轮播
+        oBox.onmouseleave = function(){
+            paly();
+        }
     </script>
 </body>
 </html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        // offsetWidth 获取元素宽度
+        // style.widht 设置元素宽度
+        var oBox = document.getElementById("box");
+        var timer = undefined;
+        oBox.onmouseenter = function(){
+            clearInterval(timer)
+            timer = setInterval(function(){
+                if(oBox.offsetWidth >= 400){
+                    clearInterval(timer)
+                }else{
+                    oBox.style.width = oBox.offsetWidth+10+"px";
+                }
+            },16);
+        }
+        oBox.onmouseleave = function(){
+            clearInterval(timer);
+            timer = setInterval(function(){
+                if(oBox.offsetWidth <= 200){
+                    clearInterval(timer);
+                }else{
+                    oBox.style.width = oBox.offsetWidth-10+"px";
+                }
+            },16);
+        }
+
+
+        // function foo(){
+        //     var a = 10;
+        //     function foo2(){
+        //         console.log(a);
+        //     }
+        //     foo2()
+        // }
+        // foo();
+    </script>
+</body>
+</html>
