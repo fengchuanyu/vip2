@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+        }
+        .small-img,.big-img{
+            width: 400px;
+            height: 400px;
+            float: left;
+            margin-right: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        .small-img img{
+            width: 400px;
+            height: 400px;
+        }
+        .big-img img{
+            width: 800px;
+            height: 800px;
+        }
+        .mosk{
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255,255,255,0.3);
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="small-img">
+        <img src="./img/niu.png">
+        <div class="mosk"></div>
+    </div>
+    <div class="big-img">
+        <img src="./img/niu.png">
+    </div>
+    <script>
+        var smallImg = document.getElementsByClassName("small-img")[0];
+        var oMosk = document.getElementsByClassName("mosk")[0];
+        smallImg.onmousemove = function(event){
+            oMosk.style.left = event.clientX - 100 + "px";
+            oMosk.style.top = event.clientY - 100 + "px";
+        }
+    </script>
+</body>
+</html>
