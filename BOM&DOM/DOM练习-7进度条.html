@@ -42,6 +42,7 @@
                 if(oContent.offsetWidth>=300){
                    clearInterval(timer); 
                 }else{
+                    // console.log(oContent.getBoundingClientRect().width);
                     oInnerText.innerText = ++num + "%";
                     oContent.style.width = oContent.offsetWidth + 3 + "px";
                 }

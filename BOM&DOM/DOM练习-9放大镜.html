@@ -32,6 +32,11 @@
             top:0;
             left: 0;
         }
+        .big-img img{
+            position: absolute;
+            top:0;
+            left: 0;
+        }
     </style>
 </head>
 <body>
@@ -40,14 +45,34 @@
         <div class="mosk"></div>
     </div>
     <div class="big-img">
-        <img src="./img/niu.png">
+        <img id="b-img" src="./img/niu.png">
     </div>
     <script>
         var smallImg = document.getElementsByClassName("small-img")[0];
         var oMosk = document.getElementsByClassName("mosk")[0];
+        var bigImg = document.getElementById("b-img");
         smallImg.onmousemove = function(event){
-            oMosk.style.left = event.clientX - 100 + "px";
-            oMosk.style.top = event.clientY - 100 + "px";
+            var thisLeft = event.clientX - 100;
+            var thisTop = event.clientY - 100;
+
+            if(thisLeft<=0){
+                thisLeft = 0;
+            }
+            if(thisTop<=0){
+                thisTop = 0;
+            }
+            if(thisLeft>=200){
+                thisLeft = 200;
+            }
+            if(thisTop>=200){
+                thisTop = 200;
+            }
+
+            oMosk.style.left = thisLeft  + "px";
+            oMosk.style.top = thisTop + "px";
+            bigImg.style.left = (-thisLeft*2)+"px";
+            bigImg.style.top = (-thisTop*2)+"px";
+
         }
     </script>
 </body>
