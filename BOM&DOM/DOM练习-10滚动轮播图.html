@@ -22,6 +22,7 @@
             border:5px solid white;
             margin: 0 auto;
             position: relative;
+            overflow: hidden;
         }
         .img-bar ul{
             width: 2450px;
@@ -106,7 +107,10 @@
     <script>
         var numBtn = document.getElementsByClassName("right-btn")[0].getElementsByTagName("li");
         var imgList = document.getElementById("img-list");
+        var arrBtn = document.getElementsByClassName("left-btn")[0].getElementsByTagName("li");
+        var oBox = document.getElementsByClassName("box")[0];
         var nowIndex = 0;
+        var timer;
 
         // 图片切换函数
         function changeImg(index){
@@ -120,6 +124,7 @@
             for(var i = 0;i<numBtn.length;i++){
                 numBtn[i].className = "";
             }
+            // console.log(numBtn[index],index);
             numBtn[index].className = "active";
 
             // 控制元素移动
@@ -138,6 +143,40 @@
             numBtn[i].onclick = function(){
                 changeImg(this.index);
             }
+        }
+        // 向后移动函数
+        function playNext(){
+            if(nowIndex+1 > 4){
+                changeImg(0);
+            }else{
+                changeImg(nowIndex+1)
+            }
+        }
+        // 向后按钮
+        arrBtn[1].onclick = playNext;
+        // 向前按钮
+        arrBtn[0].onclick = function(){
+            if(nowIndex-1 <0 ){
+                changeImg(4)
+            }else{
+                changeImg(nowIndex-1)
+            }
+            
+        }
+        // 定时轮播
+        function play(){
+            timer = setInterval(function(){
+                playNext()
+            },1000);
+        }
+        play();
+        // 鼠标移入清除定时切换
+        oBox.onmouseenter = function(){
+            clearInterval(timer);
+        }
+        // 鼠标移出时开始轮播
+        oBox.onmouseleave = function(){
+            play();
         }
     </script>
 </body>
