@@ -1,49 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
-            margin:0;
+        * {
+            margin: 0;
             padding: 0;
         }
-        li{
+
+        li {
             list-style: none;
         }
 
-        body{
+        body {
             background-color: #000;
         }
-        .box{
+
+        .box {
             width: 490px;
             height: 170px;
-            border:5px solid white;
+            border: 5px solid white;
             margin: 0 auto;
             position: relative;
             overflow: hidden;
         }
-        .img-bar ul{
-            width: 2450px;
+
+        .img-bar ul {
+            width: 2940px;
             position: absolute;
-            top:0;
+            top: 0;
             left: 0;
         }
-        .img-bar li{
+
+        .img-bar li {
             /* display: none; */
             float: left;
         }
-        .img-bar .active{
+
+        .img-bar .active {
             display: block;
         }
-        .btn-bar{
+
+        .btn-bar {
             position: absolute;
             bottom: 20px;
             left: 0;
             width: 100%;
         }
-        .btn-bar li{
+
+        .btn-bar li {
             color: white;
             float: left;
             background-color: #f90;
@@ -52,19 +60,23 @@
             border-radius: 50%;
             text-align: center;
             line-height: 20px;
-            margin:0 3px;
+            margin: 0 3px;
         }
-        .btn-bar .left-btn{
+
+        .btn-bar .left-btn {
             float: left;
         }
-        .btn-bar .right-btn{
+
+        .btn-bar .right-btn {
             float: right;
         }
-        .btn-bar .active{
+
+        .btn-bar .active {
             background-color: red;
         }
     </style>
 </head>
+
 <body>
     <div class="box">
         <div class="img-bar">
@@ -83,6 +95,9 @@
                 </li>
                 <li>
                     <img src="./img/05.jpg" alt="">
+                </li>
+                <li class="active">
+                    <img src="./img/01.jpg" alt="">
                 </li>
             </ul>
         </div>
@@ -111,73 +126,97 @@
         var oBox = document.getElementsByClassName("box")[0];
         var nowIndex = 0;
         var timer;
+        var changeTimer = null;
 
         // 图片切换函数
-        function changeImg(index){
-            var direction = -1;
+        function changeImg(index) {
+            // 如果图片滚动中则结束函数
+            if(changeTimer){
+                return true;
+            }
 
-            if(nowIndex > index){
+            //判断方向
+            var direction = -1;
+            if (nowIndex > index) {
                 direction = 1;
             }
 
+            // 边界判断
+            // if(nowIndex == 5){
+            //     index = 0
+            // }
+
             // 控制数字按钮选中
-            for(var i = 0;i<numBtn.length;i++){
+            for (var i = 0; i < numBtn.length; i++) {
                 numBtn[i].className = "";
             }
             // console.log(numBtn[index],index);
-            numBtn[index].className = "active";
+            if(index == 5){
+                numBtn[0].className = "active";
+            }else{
+                numBtn[index].className = "active";
+            }
+            
 
             // 控制元素移动
-            var timer = setInterval(function(){
+            changeTimer = setInterval(function () {
                 imgList.style.left = imgList.offsetLeft + (direction * 10) + "px";
-                if(imgList.offsetLeft == -490 * index){
-                    clearInterval(timer);
+                if (imgList.offsetLeft == -490 * index) {
+                    clearInterval(changeTimer);
+
+                    if(index == 5){
+                        imgList.style.left = 0;
+                        index = 0;
+                    }
+
+                    changeTimer = null;
                     nowIndex = index;
                 }
-            },16);
+            }, 16);
         }
 
         // 数字按钮
-        for(var i=0;i<numBtn.length;i++){
+        for (var i = 0; i < numBtn.length; i++) {
             numBtn[i].index = i;
-            numBtn[i].onclick = function(){
+            numBtn[i].onclick = function () {
                 changeImg(this.index);
             }
         }
         // 向后移动函数
-        function playNext(){
-            if(nowIndex+1 > 4){
-                changeImg(0);
-            }else{
-                changeImg(nowIndex+1)
-            }
+        function playNext() {
+            changeImg(nowIndex+1)
         }
         // 向后按钮
         arrBtn[1].onclick = playNext;
         // 向前按钮
-        arrBtn[0].onclick = function(){
-            if(nowIndex-1 <0 ){
+        arrBtn[0].onclick = function () {
+            if (nowIndex - 1 < 0) {
+                nowIndex = 5
+                imgList.style.left = "-2490px";
                 changeImg(4)
-            }else{
-                changeImg(nowIndex-1)
+            } else {
+                changeImg(nowIndex - 1)
             }
-            
+
         }
+
+
         // 定时轮播
-        function play(){
-            timer = setInterval(function(){
+        function play() {
+            timer = setInterval(function () {
                 playNext()
-            },1000);
+            }, 1000);
         }
         play();
         // 鼠标移入清除定时切换
-        oBox.onmouseenter = function(){
+        oBox.onmouseenter = function () {
             clearInterval(timer);
         }
         // 鼠标移出时开始轮播
-        oBox.onmouseleave = function(){
+        oBox.onmouseleave = function () {
             play();
         }
     </script>
 </body>
+
 </html>
