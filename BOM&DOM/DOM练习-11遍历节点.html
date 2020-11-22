@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>
+                <span>你好</span>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h1>hello</h1>
+    </div>
+    <script>
+        
+        var rootHtml = document;
+
+        function foo(el) {
+            for (var i = 0; i < el.childNodes.length; i++) {
+                if (el.childNodes[i].nodeType == 1) {
+                    console.log(el.childNodes[i].nodeName);
+                    if (el.childNodes[i].hasChildNodes()) {
+                        foo(el.childNodes[i])
+                    }
+                }
+            }
+        }
+        foo(rootHtml);
+    </script>
+</body>
+
+</html>

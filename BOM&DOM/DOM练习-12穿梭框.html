@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="sel" multiple="multiple" style="width: 100px;height: 160px;">
+        <option value="1">a</option>
+        <option value="2">b</option>
+        <option value="3">c</option>
+        <option value="4">d</option>
+        <option value="5">e</option>
+    </select>
+    <script>
+        var aOption = document.querySelectorAll("option");
+        var sel = document.querySelector("#sel");
+        sel.ondblclick = function(){
+            // console.log(this.selectedIndex)
+            for(var i=0;i<aOption.length;i++){
+                console.log(aOption[i].selected);
+            }
+        }
+        // for(var i=0;i<aOption.length;i++){
+        //     console.log(aOption[i]);
+        //     aOption[i].ondblclick = function(){
+        //         console.log(this);
+        //     }
+        // }
+    </script>
+</body>
+</html>
