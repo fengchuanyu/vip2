@@ -4,30 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        select{
+            width: 100px;
+            height: 160px;
+        }
+        .left,.right{
+            float: left;
+            margin:0 20px;
+        }
+        .btn{
+            width: 150px;
+            height: 30px;
+            background-color: #ddd;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <select id="sel" multiple="multiple" style="width: 100px;height: 160px;">
-        <option value="1">a</option>
-        <option value="2">b</option>
-        <option value="3">c</option>
-        <option value="4">d</option>
-        <option value="5">e</option>
-    </select>
+    <div class="left">
+        <select id="sel1" multiple="multiple">
+            <option>选项一</option>
+            <option>选项二</option>
+            <option>选项三</option>
+            <option>选项四</option>
+            <option>选项五</option>
+            <option>选项六</option>
+        </select>
+        <div id="check-left" class="btn">选中添加到右边&gt;&gt;</div>
+        <div id="remove-left" class="btn">全部添加到右边&gt;&gt;</div>
+    </div>
+    <div class="right">
+        <select id="sel2" multiple="multiple">
+            <option>选项七</option>
+        </select>
+        <div id="check-right" class="btn">选中添加到左边&lt;&lt;</div>
+        <div id="remove-right" class="btn">全部添加到左边&lt;&lt;</div>
+    </div>
     <script>
-        var aOption = document.querySelectorAll("option");
-        var sel = document.querySelector("#sel");
-        sel.ondblclick = function(){
-            // console.log(this.selectedIndex)
-            for(var i=0;i<aOption.length;i++){
-                console.log(aOption[i].selected);
+        var sel1 = document.querySelector("#sel1");
+        var sel2 = document.querySelector("#sel2");
+        var checkLeft = document.querySelector("#check-left");
+        var checkRight = document.querySelector("#check-right");
+        var removeLeft= document.querySelector("#remove-left");
+        var removeRight= document.querySelector("#remove-right");
+
+
+        // 双击移动元素
+        sel1.ondblclick = function(){
+            // console.log(sel1.selectedIndex);
+            var options = this.querySelectorAll("option");
+            sel2.appendChild(options[this.selectedIndex])
+        } 
+        sel2.ondblclick = function(){
+            var options = this.querySelectorAll("option");
+            sel1.appendChild(options[this.selectedIndex])
+        }
+        // 移动选中元素
+        checkLeft.onclick = function(){
+            var thisOption = sel1.querySelectorAll("option");
+            for(var i=0;i<thisOption.length;i++){
+                if(thisOption[i].selected){
+                    // console.log(thisOption[i].selected,thisOption[i]);
+                    sel2.appendChild(thisOption[i])
+                }
             }
         }
-        // for(var i=0;i<aOption.length;i++){
-        //     console.log(aOption[i]);
-        //     aOption[i].ondblclick = function(){
-        //         console.log(this);
-        //     }
-        // }
+        checkRight.onclick = function(){
+            var thisOption = sel2.querySelectorAll("option");
+            for(var i=0;i<thisOption.length;i++){
+                if(thisOption[i].selected){
+                    // console.log(thisOption[i].selected,thisOption[i]);
+                    sel1.appendChild(thisOption[i])
+                }
+            }
+        }
+        // 全部移动
+        removeLeft.onclick = function(){
+            console.log(sel1.innerHTML);
+            
+            sel2.innerHTML += sel1.innerHTML;
+            sel1.innerHTML = "";
+        }
+        removeRight.onclick = function(){
+            sel1.innerHTML += sel2.innerHTML;
+            sel2.innerHTML = "";
+        }
     </script>
 </body>
 </html>
