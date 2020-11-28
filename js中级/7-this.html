@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var a = "hello";
+        // var obj = {
+        //     a:10,
+        //     foo:function(){
+        //         function foo2(){
+        //             console.log(this.a);
+        //         }
+        //         return foo2
+        //     }
+        // }
+        // var b = obj.foo();
+        // b()
+
+
+        // console.log(b);
+        var a = "a";
+        var obj = {
+            a:"1"
+        }
+
+        function foo(str,str2){
+            console.log(this.a+str+str2);
+        }
+        // foo("abc");
+        // foo.call(obj,"123","abc");
+        // foo.apply(obj,["abc","123"])
+        var foo2 = foo.bind(obj,"111","222");
+        foo2();
+    </script>
+</body>
+</html>
