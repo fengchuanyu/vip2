@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function foo(){
+        //     var a = 10;
+        //     function foo2(){
+        //         console.log(a);
+        //     }
+        // }
+
+
+
+
+        // console.log(a);
+
+        // var a = 20;
+        // var obj = {
+        //     a:10,
+        //     foo:function(){
+        //         this.a = 30;
+        //         // console.log(this.a);
+        //     }
+        // }
+
+        // obj.foo()
+        // console.log(obj.a);
+
+
+
+        // function f1() {
+        //     var n = 999;
+        //     function f2() {
+        //         n+=1;
+        //         return n;
+        //     }
+        //     return f2;
+        // }
+
+        // var result = f1();
+        // console.log(result());
+        // console.log(result());
+
+
+        // var name = "The Window";
+        // var object = {
+        //     name: "My Object",
+        //     getNameFunc: function () {
+        //         return function () {
+        //             return this.name;
+        //         };
+
+        //     }
+
+        // };
+        // // alert(object.getNameFunc()());
+        // var a = object.getNameFunc();
+        // console.log(a());
+
+
+        var name = "The Window";
+        var object = {
+            name: "My Object",
+            getNameFunc: function () {
+                var that = this;
+                return function () {
+                    return that.name;
+                };
+            }
+        };
+        alert(object.getNameFunc()());
+    </script>
+</body>
+
+</html>
