@@ -54,7 +54,7 @@
             oMosk.style.display = "block";
             oMenuList.style.top = event.clientY + "px";
             oMenuList.style.left = event.clientX + "px";
-            event.preventDefault();
+            event.preventDefault();//阻止默认行为
         }
         oMosk.onclick = function(){
             oMenuList.style.display = "none";

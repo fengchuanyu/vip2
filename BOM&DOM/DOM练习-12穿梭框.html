@@ -64,7 +64,9 @@
         // 移动选中元素
         checkLeft.onclick = function(){
             var thisOption = sel1.querySelectorAll("option");
+            var thisOption2 = sel1.getElementsByTagName("option");
             for(var i=0;i<thisOption.length;i++){
+                console.log(thisOption2)
                 if(thisOption[i].selected){
                     // console.log(thisOption[i].selected,thisOption[i]);
                     sel2.appendChild(thisOption[i])
