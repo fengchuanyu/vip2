@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var str = {"name":"xiaoming"}
+        var obj = {
+            userName:"小明",
+            sex:"男",
+            age:20
+        }
+        // console.log( JSON.stringify(obj) );
+        var str = JSON.stringify(obj)
+        console.log( JSON.parse(str) );
+    </script>
+</body>
+</html>
