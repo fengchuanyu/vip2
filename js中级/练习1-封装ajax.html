@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./test.js"></script>
+    <script src="./ajax.js"></script>
 </head>
 <body>
     <script>
-        // ajaxGet("./test.json",function(res){
-        //     console.log(res.userName);//小明
-        // })
-        foo();
+        ajaxGet("http://47.92.82.13:4000/showLevel",function(res){
+            console.log(res.data);//小明
+        })
+        // foo();
+
     </script>
 </body>
 </html>
