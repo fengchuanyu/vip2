@@ -25,6 +25,38 @@
         // var i = "i"
 
         // console.log(obj["item"]);
+
+
+        function deepClone(obj){
+            let result = null;
+            if(typeof obj == "object"){
+                if(Array.isArray(obj)){
+                    result = [];
+                    for(var i=0;i<obj.length;i++){
+                        result.push(deepClone((obj[i])));
+                    }
+                }else{
+                    result = {};
+                    for(var item in obj){
+                        result[item] = obj[item]
+                    }
+                }
+            }else{
+                result = obj;
+            }
+            return result;
+        }
+        
+        // var obj = {
+        //     a:1,
+        //     b:2,
+        //     c:3
+        // }
+        var arr = [0,1,2,3,4]
+        var obj2 = deepClone(arr)
+        // obj.a = "123"
+        arr[0]="a";
+        console.log(obj2);
     </script>
 </body>
 </html>

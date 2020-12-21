@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            color: white;
+            font-size:45px;
+            text-align: center;
+            line-height: 200px;
+            background-color: red;
+            /* transition: all 1s ease; */
+            transition-property: all;
+            transition-duration: 1s;
+            transition-timing-function: ease;
+            transition-delay: 1s;
+        }
+        .box:hover{
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+         你好
+    </div>
+</body>
+</html>
