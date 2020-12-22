@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            perspective: 1000px;
+            /* perspective-origin: center center; */
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border:1px dashed black;
+            margin:100px auto;
+        }
+        .div1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            transition:all 1s ease;
+            transform-style: preserve-3d;
+        }
+        .div1:hover{
+            transform:rotateY(180deg);
+        }
+        .div2{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            transform:translateZ(10px);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="div1">
+            <div class="div2"></div>
+        </div>
+    </div>
+</body>
+</html>
