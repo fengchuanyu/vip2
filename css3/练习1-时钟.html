@@ -38,17 +38,44 @@
         .clock li:nth-child(5n+1){
             height: 10px;
         }
+        .hour{
+            width: 12px;
+            height: 100px;
+            background-color: red;
+        }
+        .minute{
+            width: 10px;
+            height: 120px;
+            background-color: blue;
+        }
+        .second{
+            width: 8px;
+            height: 150px;
+            background-color: green;
+        }
+        .second,.minute,.hour{
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-100%);
+            transform-origin: top center;
+            /* transition:all 1s linear; */
+        }
     </style>
 </head>
 <body>
     <div class="box">
         <div class="clock">
-            <ul>
-                
-            </ul>
+            <ul></ul>
         </div>
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
     </div>
     <script>
+        var oHour = document.querySelector(".hour");
+        var oMinute = document.querySelector(".minute");
+        var oSecond = document.querySelector(".second");
         //重绘 比如修改元素颜色      回流（重排）比如修改元素大小
         var oUl = document.querySelector("ul");
         // var str = "";
@@ -62,6 +89,23 @@
         }
         oUl.appendChild(oBox);
         // oUl.innerHTML = str;
+
+        function run(){
+            var timer = new Date();
+            var second = timer.getSeconds();
+            var minute = timer.getMinutes()+second/60;
+            var hour = timer.getHours()+minute/60;
+
+            oSecond.style.transform = "rotate("+(second*6 - 180)+"deg)"
+            oMinute.style.transform = "rotate("+(minute*6 - 180)+"deg)"
+            oHour.style.transform = "rotate("+(hour*30 - 180)+"deg)"
+            
+        }
+        run();
+        setInterval(function(){
+            run();   
+        }, 1000);
+        
     </script>
 </body>
 </html>
