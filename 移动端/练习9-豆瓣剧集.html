@@ -119,7 +119,7 @@
         <div class="list-bar">
             <h2>国产剧</h2>
             <ul class="tv-list">
-                <li class="list-item">
+                <!-- <li class="list-item">
                     <div class="li-left">
                         <img src="https://img9.doubanio.com/view/photo/m_ratio_poster/public/p2626092806.jpg" alt="">
                     </div>
@@ -134,7 +134,7 @@
                             中国大陆 / 古装 / 陈玉珊 / 王大陆 李沁
                         </div>
                     </div>
-                </li>
+                </li> -->
                 
             </ul>
         </div>
@@ -144,12 +144,16 @@
     <script>
 
         var start = 0;
+        var total = 0;
+        var sign = true;
         // 获取数据
         function getData(){
+            sign = false;
             var tvList = document.querySelector('.tv-list');
             ajaxGet("https://bird.ioliu.cn/v2?url=https://m.douban.com/rexxar/api/v2/subject_collection/tv_domestic/items?start="+start+"&count=18",function(res){
-                let dataList = res.subject_collection_items
-                let ali = "";
+                var dataList = res.subject_collection_items;
+                var ali = "";
+                total = res.total;
                 for(var i=0;i<dataList.length;i++){
                     ali += '<li class="list-item">'+
                     '<div class="li-left">'+
@@ -163,7 +167,9 @@
                         '<div class="info">'+dataList[i].info+'</div></div></li>'
 
                 }
-                tvList.innerHTML = ali;
+                tvList.innerHTML += ali;
+                start += 18;
+                sign = true;
             })
         }
         // 格式化星星分数
@@ -195,13 +201,15 @@
             // oHtml.scrollHeight 可滚动区域高度
             if(oHtml.scrollTop + oHtml.clientHeight + 10 >= oHtml.scrollHeight){
                 console.log("到底部了");
-                start = 18;
-                getData()
+                if(sign && start < total){
+                    getData()
+                }
             }
         }
 
 
         getData();
+
     </script>
 </body>
 </html>
