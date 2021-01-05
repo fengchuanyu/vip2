@@ -93,7 +93,10 @@
     </tbody>
   </table>
   <script>
-    
+    $("tbody tr").click(function(){
+        $(this).addClass("selected").siblings().removeClass("selected").end().find(":radio").prop("checked",true);
+        // $(this).find(":radio").prop("checked",true);
+    })
   </script>
 </body>
 
