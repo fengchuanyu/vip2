@@ -49,10 +49,19 @@
         // let {age,school} = foo();
         // console.log(age,school);
 
-        let a = 10;
-        let b = 20;
+        var a = 10;
+        var b = 20;
 
-        
+        // 方法一
+        // let temp = a + b;
+        // a = b;
+        // b = temp - a;
+
+        // 方法二
+        // a = [b,b=a][0]
+
+        // 方法三
+        // var [a,b] = [b,a];
 
         console.log(a,b);
 
