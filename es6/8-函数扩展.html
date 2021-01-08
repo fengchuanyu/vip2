@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let arr = [1,2,3,4,5,6];
+        // console.log( arr.slice(2) );
+
+
+        // function foo(a,b='hello'){
+        //     console.log(a,b);
+        // }
+        // foo(1,2);
+
+        // function foo(){
+        //     console.log("11");
+        // }
+        // console.log(foo.name);
+
+        // let foo = function foo2(){
+        //     console.log("11");
+        // }
+        // console.log(foo.name);
+
+        // function foo(a,b,c=2){
+
+        // }
+        // console.log(foo.length);
+
+
+        // function foo(){
+
+        // }
+        // let foo2 = function(){
+
+        // }
+
+        // let foo = () => {
+        //     console.log("hello");
+        // }
+
+        // let foo2 = () => 'hello'
+        // let str = "world";
+        // // let foo2 = () => {
+        // //     return "hello"
+        // // }
+        
+        
+        // console.log(foo2());
+
+        //箭头函数 的this不是指向调用时候的对象，而是指向定义时所在的对象
+        //(箭头函数里没有this)
+        
+        // var a = "2"
+        // var obj = {
+        //     a:"1",
+        //     b:this.a,
+        //     // fn:()=>{
+        //     //     console.log(this.a);
+        //     // }
+        // }
+        // // obj.fn();
+
+        // console.log(obj.b);
+
+
+        var a = "2";
+        var obj = {
+            a:"1",
+            b:this.a,
+            fn:function(){
+                function foo(){
+                    console.log(this.a);
+                }
+                foo()
+            }
+        }
+        obj.fn();
+
+
+
+
+    </script>
+</body>
+</html>
