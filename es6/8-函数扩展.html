@@ -68,18 +68,129 @@
         // console.log(obj.b);
 
 
-        var a = "2";
-        var obj = {
-            a:"1",
-            b:this.a,
-            fn:function(){
-                function foo(){
-                    console.log(this.a);
-                }
-                foo()
-            }
-        }
-        obj.fn();
+        // var a = "2";
+        // var obj = {
+        //     a:"1",
+        //     b:this.a,
+        //     fn:function(){
+        //         function foo(){
+        //             console.log(this.a);
+        //         }
+        //         foo()
+        //     }
+        // }
+        // obj.fn();
+
+        // var a = "2";
+        // var obj = {
+        //     a:"1",
+        //     b:this.a,
+        //     fn:function(){
+        //         var that = this;
+        //         // console.log(this.a);
+        //         function foo(){
+        //             console.log(that.a);
+        //         }
+        //         foo()
+        //     }
+        // }
+        // obj.fn();
+
+
+        // call apply bind
+        // var a = "2";
+        // var obj = {
+        //     a:"1",
+        //     b:this.a,
+        //     fn:function(){
+        //         function foo(a,b){
+        //             console.log(this.a);
+        //             console.log(a,b);
+        //         }
+        //         // foo.call(obj,'a','b')
+        //         // foo.apply(obj,['a','b'])
+        //         var fn = foo.bind(obj,'a','b');
+        //         fn();
+        //     }
+        // }
+        // obj.fn();
+
+        // var a = "2";
+        // var obj = {
+        //     a:"1",
+        //     b:this.a,
+        //     fn:function(){
+        //         // function foo(){
+        //         //     console.log(this.a);
+        //         // }
+        //         let foo = ()=>{
+        //             console.log(this.a);
+        //         }
+        //         foo()
+        //     }
+        // }
+        // obj.fn();
+
+
+        // let foo = a => {
+        //     console.log(a);
+        // }
+
+        // foo(1);
+
+        // let arr = new Array();
+        // let arr = [];
+        // arr.length arr.push()
+
+        // 构造函数
+        // function Test(sName){
+        //     this.sName = sName;
+        //     this.school = "黑大";
+        //     this.speak = function(){
+        //         console.log("hello");
+        //     }
+        // }
+
+        // let test1 = new Test("小明");
+        // console.log(test1.sName);
+
+        // // console.log(test1.school);
+        // // test1.speak();
+
+        // let test2 = new Test('小刚');
+        // console.log(test2.sName);
+        // // console.log(test2.school);
+
+
+        // let Foo = (sName) => {
+        //     this.sName = sName;
+        //     this.school = "黑大";
+        // }
+
+        // let foo2 = new Foo("小刚");
+
+        // let foo = function(){
+        //     console.log(arguments);
+        // }
+        // foo(1,2,3)
+
+        // let foo = ()=>{
+        //     console.log(arguments);
+        // }
+        // foo(1,2,3)
+
+        // let foo = (...arg)=>{
+        //     console.log(arg);
+        // }
+        // foo(1,2,3)
+
+        
+
+
+
+
+
+
 
 
 
