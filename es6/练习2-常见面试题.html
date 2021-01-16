@@ -149,26 +149,68 @@
         // let foo2 = new Foo();
         // foo2.test()
 
+        // var a = 10;
+        // var obj = {
+        //     a:"1"
+        // }
+        // function foo(arg1,arg2){
+        //     console.log(this.a,arg1,arg2);
+        //     return "hello"
+        // }
+
+        // var str = foo.call(obj,"aa","bb");
+        // console.log(str);
+        // foo.apply(obj,["aa","bb"]);
+        // var foo2 = foo.bind(obj);
+        // foo2()
+
         
-        Function.prototype.myCall = function(){
+        // Function.prototype.myCall = function(context,...arg){
+        //     context.fn = this;
+        //     var res = context.fn(...arg);
+        //     delete context.fn;
+        //     return res;
+        // }
+        // Function.prototype.myBind = function(context,...arg){
+        //     var that = this
+        //     return function(){
+        //         that.apply(context,arg)
+        //     }
+        // }
 
-        }
-        Function.prototype.myBind = function(){
 
-        }
+        // var a = 20;
+        // var obj = {
+        //     a:"hello",
+        //     // fn:function(){
+        //     //     console.log(this.a)
+        //     // }
+        // }
+
+        // function foo(arg1,arg2){
+        //     console.log(this.a,arg1,arg2);
+        //     return "hello world"
+        // }
+        // // var str = foo.myCall(obj,"aa","bb")//hello
+        // // console.log(str);
+        // let foo2 = foo.myBind(obj,"aa","bb");
+        // foo2()//hello
 
 
-        let a = 20;
-        let obj = {
-            a:"hello"
-        }
+        // function foo(){
+        //     // console.log(arguments);
+        //     // console.log(Array.from(arguments));
+        //     // arguments.slice(0)
+        //     var arr =Array.prototype.slice.call(arguments,0);
+        //     console.log(arr);
+            
+        // }
+        // foo(1,2,3,4,5,6,7)
 
-        function foo(){
-            console.log(this.a);
-        }
-        foo.myCall()//hello
-        let foo2 = foo.myBind();
-        foo2()//hello
+        // var arr = [1,2,3,4,5,6];
+
+        // console.log(arr.slice(0));
+
 
 
     </script>
