@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 用js 模拟对  栈 和 队列的操作 -->
+    <script>
+        // let arr = [1,2,3];
+        // arr.push(1);
+        // arr.unshift(1);
+        // console.log(arr);
+        // console.log(arr.pop());
+        // console.log(arr);
+
+        // console.log(arr.slice(2));
+        // console.log(arr);
+        // console.log(arr.splice(2,1));
+        // console.log(arr);
+        // arr.shift()
+        // console.log(arr);
+
+
+    </script>
+
+    <!-- 对数组进行去重操作 -->
+    <script>
+        // let arr = [1, 2, 3, 3, 2, 6, 7];
+
+        // let obj = [
+        //     {
+        //         name: "xxx",
+        //         age: ""
+        //     }, {
+        //         name:"xxx",
+        //     },{
+        //         name:"yyy"
+        //     }
+        // ]
+
+        // let arr = [1, 2, 3, 3, 2, 6, 7,3];
+        //方法一
+        // function unique(arr){
+        //     for(let i=0;i<arr.length;i++){
+        //         for(let j=i+1;j<arr.length;j++){
+        //             if(arr[i] == arr[j]){
+        //                 arr.splice(j,1);
+        //                 j--;
+        //             }
+        //         }
+        //     }
+        // }
+        // unique(arr);
+        // console.log(arr);
+
+        // 方法二
+        // function unique(arr){
+        //     let newArr = [];
+        //     for(let i =0;i<arr.length;i++){
+        //         // if(newArr.indexOf(arr[i]) == -1){
+        //         if(!newArr.includes(arr[i])){
+        //             newArr.push(arr[i]);
+        //         }
+        //     }
+        //     return newArr;
+        // }
+        // console.log(unique(arr));
+
+        // 方法三
+        // function nuique(arr){
+        //     arr = arr.sort(function(a,b){
+        //         return b-a
+        //     })
+        //     let newArr = [arr[0]];
+        //     for(let i = 1;i<arr.length;i++){
+        //         if(arr[i-1] != arr[i]){
+        //             newArr.push(arr[i]);
+        //         }
+        //     }
+        //     return newArr;
+        // }
+        // console.log(nuique(arr));
+
+        // 方法四
+        // function unique(arr){
+        //     let obj = {};
+        //     for(let i=0;i<arr.length;i++){
+        //         if(!(arr[i] in obj)){
+        //             obj[arr[i]] = 1
+        //         }else{
+        //             obj[arr[i]]++
+        //         }
+        //     }
+        //     console.log(obj);
+        //     console.log(Object.keys(obj));
+        // }
+        // unique(arr);
+
+
+        // let obj = {};
+        // obj['1'] = "hello";
+        // console.log(obj);
+
+
+        // 方法五
+        // function unique(arr){
+        //     let newArr = [];
+        //     newArr = arr.filter(function(val,key,thisArr){
+        //         return thisArr.indexOf(val) == key
+        //     })
+        //     console.log(newArr);
+        // }
+        // unique(arr)
+        
+    </script>
+
+    <!-- 手动实现call  bind -->
+    <script>
+        // Array
+        // let arr = [];
+        // arr.push(1);
+        // console.log(arr);
+
+        // let num = "12";
+        // num.push(2)
+
+        // let arr = new Array(1,2);
+        // // console.log(Array.prototype);
+        // // console.log(arr.__proto__);
+
+        // Array.prototype.vip2 = function(){
+        //     console.log(this);
+        //     console.log("hello world");
+        // }
+        // arr.vip2()//"hello world"
+
+        // function Foo(){
+        //     console.log("hello")
+        // }
+        // Foo.prototype.test = function(){
+        //     console.log("test");
+        // }
+        // console.log(Foo.prototype);
+
+        // let foo2 = new Foo();
+        // foo2.test()
+
+        
+        Function.prototype.myCall = function(){
+
+        }
+        Function.prototype.myBind = function(){
+
+        }
+
+
+        let a = 20;
+        let obj = {
+            a:"hello"
+        }
+
+        function foo(){
+            console.log(this.a);
+        }
+        foo.myCall()//hello
+        let foo2 = foo.myBind();
+        foo2()//hello
+
+
+    </script>
+</body>
+
+</html>
