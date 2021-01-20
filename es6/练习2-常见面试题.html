@@ -42,7 +42,7 @@
         //     }
         // ]
 
-        // let arr = [1, 2, 3, 3, 2, 6, 7,3];
+        let arr = [1, 2, 3, 3, 2, 6, 7,3];
         //方法一
         // function unique(arr){
         //     for(let i=0;i<arr.length;i++){
@@ -115,6 +115,18 @@
         //     console.log(newArr);
         // }
         // unique(arr)
+
+        //方法六
+        function unique(arr){
+            // console.log(new Set(arr));
+            let setArr = Array.from(new Set(arr)); 
+            // for(let val of setArr){
+            //     console.log(val);
+            // }
+            console.log(setArr);
+        }
+        unique(arr)
+
         
     </script>
 

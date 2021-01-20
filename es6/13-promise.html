@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        // 回调地狱
+        // $.get("./data/a.json", function (res) {
+        //     console.log(res);
+        //     $.get("./data/b.json", function (res) {
+        //         console.log(res);
+        //         $.get("./data/c.json", function (res) {
+        //             console.log(res);
+        //         })
+        //     })
+        // })
+
+        let promise1 = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                console.log(1);
+                // resolve('hello')
+                reject()
+                console.log(promise1);
+            },2000)
+        })
+
+        console.log(promise1);
+        // promise1.then(function(res){
+        //     console.log(res);
+        // }).catch(function(){
+        //     console.log("erro");
+        // })
+
+
+
+
+
+    </script>
+</body>
+
+</html>
