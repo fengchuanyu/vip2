@@ -76,17 +76,23 @@
             console.log(this.name);
         }
 
-        function Teacher(userName,userAge){
+        function Teacher(userName,userAge,school){
             Person.call(this,userName,userAge)
+            this.school = school;
         }
         Teacher.prototype = new Person();
         Teacher.prototype.constructor = Teacher;
+        Teacher.prototype.shwowSchool = function(){
+            console.log(this.school);
+        }
 
-        let teacher1 = new Teacher("小王",19);
+        let teacher1 = new Teacher("小王",19,"黑大");
 
         console.log(teacher1.name);
         teacher1.showName();
-        console.log(teacher1.__proto__.constructor);
+        // console.log(teacher1.__proto__.constructor);
+        console.log(teacher1.school);
+        teacher1.shwowSchool();
 
 
 
