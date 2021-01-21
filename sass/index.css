@@ -57,3 +57,31 @@
 li {
   list-style: none;
 }
+
+.div8 {
+  height: 100px;
+  width: 10%;
+  background-image: url("./src/dist/XXX.PNG");
+}
+
+.div9 {
+  color: rgba(0, 255, 0, 0.1);
+}
+
+.div10 {
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  color: blue;
+}
+
+.div11 {
+  background-color: red;
+}
+
+.div12 {
+  color: yellow;
+}
+
+.div13 {
+  color: blue;
+}

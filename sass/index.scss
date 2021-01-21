@@ -50,5 +50,89 @@ $keyname:"color";
     @extend .div6;
     padding: 10px;
 }
-@import "./base.scss"
+@import "./base.scss";
 
+$hnum:100px;
+$num1:5.9px;
+$str1:"xxx.png";
+.div8{
+    height: ($hnum / 10) * 10;
+    // width: abs($num1);
+    // width: round($num1);
+    // width: floor($num1);
+    width: percentage(10px / 100px);
+    background-image: url('./src/dist/'+ to-upper-case($str1) );
+
+}
+$color1:rgb(255,0,0);
+$color2:rgba(0,255,0,.3);
+.div9{
+    // color: darken($color1,30%);
+    // color: lighten($color1,30%);
+    // color: opacify($color2,.3);
+    color: transparentize($color2,.2);
+}
+
+$list1:1px solid black;
+$list2:red blue green yellow;
+.div10{
+    border: {
+        right: $list1;
+        left: $list1;
+    };
+    color: nth($list2,2);
+}
+$map1:(color1:red,font-size:10px);
+.div11{
+   background-color: map-get($map1,color1); 
+}
+
+$key1:100;
+.div12{
+    @if($key1 < 5){
+        color: red;
+    }@else if($key1<10 and $key1 >=5){
+        color: blue;
+    }@else{
+        color: yellow;
+    }
+}
+
+// @for $i from 1 through 10{
+//     .test-#{$i}{
+//         width: $i * 100px;
+//     }
+// }
+
+// @for $i from 1 to 10{
+//     .test-#{$i}{
+//         width: $i * 100px;
+//     }
+// }
+
+// $list3:red blue green gray yellow purple;
+// @each $var in $list3 {
+//     .#{$var}-text{
+//         color: $var;
+//     }
+// }
+
+// $i:1;
+// @while $i<10 {
+//     .box-#{$i}{
+//         width: $i * 100px;
+//     }
+//     $i:$i + 1;
+// }
+
+@function foo($val){
+    @if($val > 10){
+        @return red;
+    }@else if($val <=10){
+        @return blue
+    }
+};
+
+.div13{
+    color: foo(9);
+}
