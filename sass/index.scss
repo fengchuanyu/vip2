@@ -1,0 +1,54 @@
+$color:blue;
+#div1{
+    color: $color;
+    border:1px solid $color;
+    #div2{
+        color: $color;
+    }
+}
+.header{
+    color: $color;
+    border: {
+        left:1px solid black;
+        right:1px solid black;
+    };
+    &-title{
+        color: $color;
+    }
+    &:hover{
+        color: $color;
+        
+    }
+}
+
+$keyname:"color";
+.div3{
+    #{$keyname}:$color;
+}
+
+@mixin foo($num,$col:yellow) {
+    width: $num;
+    height: $num;
+    background-color: $col;
+}
+.div4{
+    // @include foo(100px,blue);
+    @include foo($col:pink,$num:300px);
+    margin: 10px;
+}
+.div5{
+
+    @include foo(200px,black);
+    padding: 10px;
+}
+.div6{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+.div7{
+    @extend .div6;
+    padding: 10px;
+}
+@import "./base.scss"
+
