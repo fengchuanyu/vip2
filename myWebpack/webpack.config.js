@@ -1,12 +1,15 @@
 const path = require("path");
 const HtmlPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const entry = require("./webpack_config/entry_webpack")
+const CopywebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     mode:'development',
     // 入口文件配置项
-    entry:{
-        'index':'./src/index.js'
-    },
+    // entry:{
+    //     'index':'./src/index.js'
+    // },
+    entry,
     // 出口文件配置项
     output:{
         path:path.resolve(__dirname,"dist"),
@@ -43,6 +46,11 @@ module.exports = {
         ]
     },
     plugins:[
+        new CopywebpackPlugin({
+            patterns: [
+              { from: __dirname + '/src/public', to: "./public" },
+            ],
+          }),
         new MiniCssExtractPlugin({
             filename:'css/[name].css'
         }),
