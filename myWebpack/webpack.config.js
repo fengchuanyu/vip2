@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlPlugin = require("html-webpack-plugin");
 
 module.exports = {
     mode:'development',
@@ -12,6 +13,20 @@ module.exports = {
         filename:'[name].js'
     },
     module:{},
-    plugins:[],
-    devServer:{}
+    plugins:[
+        new HtmlPlugin({
+            minify:{
+                removeAttributeQuotes:true
+            },
+            hash:true,
+            template:"./src/index.html"
+        })
+    ],
+    devServer:{
+        contentBase:path.resolve(__dirname,"dist"),
+        host:"127.0.0.1",
+        compress:true,
+        port:'8081',
+        open:true
+    }
 }

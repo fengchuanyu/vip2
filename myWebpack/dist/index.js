@@ -10,6 +10,6 @@
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-eval("console.log(\"hello world\");\nfunction foo(){\n    console.log(\"你好\");\n}\nfoo();\nlet arr = [1,2,3,4]\n\n//# sourceURL=webpack://myWebpack/./src/index.js?");
+eval("console.log(\"hello world\");\nfunction foo(){\n    console.log(\"你好vip2\");\n}\nfoo();\nlet arr = [1,2,3,4,5]\nconsole.log(arr);\n\n//# sourceURL=webpack://myWebpack/./src/index.js?");
 /******/ })()
 ;
