@@ -1,6 +1,6 @@
 const path = require("path");
 const HtmlPlugin = require("html-webpack-plugin");
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     mode:'development',
     // 入口文件配置项
@@ -12,8 +12,18 @@ module.exports = {
         path:path.resolve(__dirname,"dist"),
         filename:'[name].js'
     },
-    module:{},
+    module:{
+        rules:[
+            {
+                test:/\.css$/,
+                use:[MiniCssExtractPlugin.loader,'css-loader']
+            }
+        ]
+    },
     plugins:[
+        new MiniCssExtractPlugin({
+            filename:'css/[name].css'
+        }),
         new HtmlPlugin({
             minify:{
                 removeAttributeQuotes:true
