@@ -4,3 +4,6 @@
     width: 200px;
     background-image: url("../image/slider3.jpg");
 }
+::placeholder{
+    color: blue;
+}

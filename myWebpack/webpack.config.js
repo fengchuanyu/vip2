@@ -17,7 +17,7 @@ module.exports = {
         rules:[
             {
                 test:/\.css$/,
-                use:[MiniCssExtractPlugin.loader,'css-loader']
+                use:[MiniCssExtractPlugin.loader,'css-loader','postcss-loader']
             },{
                 test:/\.scss$/,
                 use:[MiniCssExtractPlugin.loader,'css-loader','sass-loader']
@@ -30,6 +30,15 @@ module.exports = {
                         limit:500
                     }
                 }]
+            },{
+                test:/\.js$/,
+                use:[{
+                    loader:'babel-loader',
+                    options:{
+                        presets:['@babel/preset-env']
+                    }
+                }],
+                exclude:'/node_modules/'
             }
         ]
     },
