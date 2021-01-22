@@ -1,4 +1,5 @@
-import "./css/index.css"
+import "./css/index.css";
+import "./css/main.scss";
 console.log("hello world");
 function foo(){
     console.log("你好vip2");

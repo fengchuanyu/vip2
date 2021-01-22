@@ -10,13 +10,26 @@ module.exports = {
     // 出口文件配置项
     output:{
         path:path.resolve(__dirname,"dist"),
-        filename:'[name].js'
+        filename:'[name].js',
+        publicPath:'http://127.0.0.1:8081/'
     },
     module:{
         rules:[
             {
                 test:/\.css$/,
                 use:[MiniCssExtractPlugin.loader,'css-loader']
+            },{
+                test:/\.scss$/,
+                use:[MiniCssExtractPlugin.loader,'css-loader','sass-loader']
+            },{
+                test:/\.(png|jpg|gif)$/,
+                use:[{
+                    loader:'url-loader',
+                    options:{
+                        outputPath:'image/',
+                        limit:500
+                    }
+                }]
             }
         ]
     },
