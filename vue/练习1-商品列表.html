@@ -21,25 +21,25 @@
             <div class="form-row align-items-center">
                 <div class="col-auto">
                     <label class="sr-only" for="inlineFormInput">Name</label>
-                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="请输入搜索内容">
+                    <input type="text" class="form-control mb-2" id="inlineFormInput" v-model="searchText" placeholder="请输入搜索内容">
                 </div>
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-2">搜索</button>
+                    <button type="button" class="btn btn-primary mb-2" @click="searchHandle">搜索</button>
                 </div>
             </div>
         </form>
         <form>
             <div class="form-row align-items-center">
                 <div class="col-auto">
-                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="请输入商品名称">
+                    <input type="text" class="form-control mb-2" id="inlineFormInput" v-model="goodsTitle" placeholder="请输入商品名称">
                 </div>
                 <div class="col-auto">
                     <div class="input-group mb-2">
-                        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="请输入商品价格">
+                        <input type="text" class="form-control" id="inlineFormInputGroup" v-model="goodsPrice" placeholder="请输入商品价格">
                     </div>
                 </div>
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-2">添加</button>
+                    <button type="submit" @click.prevent="addHandle" class="btn btn-primary mb-2">添加</button>
                 </div>
             </div>
         </form>
@@ -54,14 +54,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="item in dataList">
+                    <tr v-for="(item,index) in dataList">
                         <td scope="row">
                             <input type="checkbox" name="" id="">
                         </td>
                         <td>{{item.title}}</td>
                         <td>{{item.price}}</td>
                         <td>
-                            <button type="button" class="btn btn-primary btn-sm">删除</button>
+                            <button type="button" class="btn btn-primary btn-sm" @click="delHandel(item.id)">删除</button>
                         </td>
                     </tr>
                     
@@ -79,21 +79,61 @@
         new Vue({
             el:"#app",
             data:{
+                goodsTitle:"",
+                goodsPrice:"",
+                searchText:"",
                 dataList:[
                     {
+                        id:1001,
                         title:"衣服",
                         price:100,
                     },
                     {
+                        id:1002,
                         title:"裤子",
                         price:200,
                     },
                     {
+                        id:1003,
                         title:"帽子",
                         price:10,
                     }
                 ]
-            }
+            },
+            methods: {
+                // 添加记录
+                addHandle(){
+                    console.log(this.goodsPrice,this.goodsTitle);
+                    this.dataList.push({
+                        title:this.goodsTitle,
+                        price:this.goodsPrice
+                    })
+                    this.goodsPrice = "";
+                    this.goodsTitle = "";
+                },
+                // 删除单条记录
+                delHandel(id){
+                    // console.log(id);
+                    // this.dataList.splice(index,1);
+                    let newArr = this.dataList.filter(function(item,key,arr){
+                        if(id != item.id){
+                            return item
+                        }
+                    })
+                    // console.log(newArr);
+                    this.dataList = newArr
+                },
+                // 搜索内容
+                searchHandle(){
+                    // this.searchText
+                    let newArr = this.dataList.filter((item,key)=>{
+                        if(item.title.includes(this.searchText)){
+                            return item
+                        }
+                    })
+                    this.dataList = newArr;
+                }
+            },
         })
     </script>
 </body>
