@@ -9,7 +9,7 @@
 <body>
     <div id="app">
         <h1>{{num}}</h1>
-        <button v-on:click="clickHandle(4)">button</button>
+        <button v-on:click.once="clickHandle(4)">button</button>
     </div>
     <script>
         let app = new Vue({
