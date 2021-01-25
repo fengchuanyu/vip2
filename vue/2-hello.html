@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <div v-text="str"></div>
+            <div v-html="str2"></div>
+        </div>
+    </div>
+    
+    <script>
+        let app = new Vue({
+            el:"#app",
+            data:{
+                str:"hello world",
+                str2:"<h1>你好</h1>"
+            }
+        })
+        console.log(app.str);
+        app.str = "hello vip2"
+    </script>
+</body>
+</html>
