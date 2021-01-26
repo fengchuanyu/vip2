@@ -12,6 +12,9 @@
         .container {
             padding: 50px 0;
         }
+        .active{
+            background-color: #ddd;
+        }
     </style>
 </head>
 
@@ -54,14 +57,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(item,index) in dataList">
+                    <!-- <tr v-bind:class="{active:item.isCheck}" v-for="(item,index) in dataList" @click="checkLine(item)" > -->
+                    <tr v-bind:class="{active:item.isCheck}" v-for="(item,index) in dataList" @click="item.isCheck = !item.isCheck" >
+
                         <td scope="row">
-                            <input type="checkbox" name="" id="">
+                            <input type="checkbox" name="" id="" v-bind:checked="item.isCheck">
                         </td>
                         <td>{{item.title}}</td>
                         <td>{{item.price}}</td>
                         <td>
-                            <button type="button" class="btn btn-primary btn-sm" @click="delHandel(item.id)">删除</button>
+                            <button type="button" class="btn btn-primary btn-sm" @click.stop="delHandel(item.id)">删除</button>
                         </td>
                     </tr>
                     
@@ -69,7 +74,7 @@
                         <td colspan="2">总价</td>
                         
                         <td>0</td>
-                        <td><button type="button" class="btn btn-primary btn-sm">删除选中</button></td>
+                        <td><button type="button" class="btn btn-primary btn-sm" @click="delCheck">删除选中</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -87,16 +92,19 @@
                         id:1001,
                         title:"衣服",
                         price:100,
+                        isCheck:false
                     },
                     {
                         id:1002,
                         title:"裤子",
                         price:200,
+                        isCheck:false
                     },
                     {
                         id:1003,
                         title:"帽子",
                         price:10,
+                        isCheck:false
                     }
                 ]
             },
@@ -132,6 +140,31 @@
                         }
                     })
                     this.dataList = newArr;
+                },
+                // 选中单行
+                checkLine(item){
+                    console.log(item);
+                    item.isCheck = !item.isCheck
+                    // this.dataList.map((item)=>{
+                    //     if(item.id == id){
+                    //         // if(item.isCheck){
+                    //         //     item.isCheck = false
+                    //         // }else{
+                    //         //     item.isCheck = true;
+                    //         // }
+                    //         item.isCheck = !item.isCheck
+                    //     }
+                    // })
+                    // console.log(this.dataList);
+                },
+                // 删除选中
+                delCheck(){
+                    let newArr = this.dataList.filter((item)=>{
+                        if(!item.isCheck){
+                            return item
+                        }
+                    })
+                    this.dataList = newArr
                 }
             },
         })
