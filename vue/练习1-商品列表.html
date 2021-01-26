@@ -76,7 +76,7 @@
                     <tr>
                         <td colspan="2">总价</td>
                         
-                        <td>0</td>
+                        <td>{{sum}}</td>
                         <td><button type="button" class="btn btn-primary btn-sm" @click="delCheck">删除选中</button></td>
                     </tr>
                 </tbody>
@@ -110,6 +110,17 @@
                         isCheck:false
                     }
                 ]
+            },
+            computed:{
+                sum(){
+                    let sumNum = 0;
+                    this.dataList.map((item)=>{
+                        if(item.isCheck){
+                            sumNum += item.price
+                        }
+                    })
+                    return sumNum
+                }
             },
             methods: {
                 // 添加记录
