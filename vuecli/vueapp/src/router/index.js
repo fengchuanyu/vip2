@@ -30,7 +30,11 @@ const routes = [
   },{
     path:"/pageone",
     name:"PageOne",
-    component:() => import('../views/Page1.vue')
+    component:() => import('../views/Page1.vue'),
+    beforeEnter: (to, from, next) => {
+      // console.log(to,from,next)
+      next();
+    }
   },{
     path:"/pagetwo",
     name:"PageTwo",
