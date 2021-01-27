@@ -6,7 +6,9 @@
       <!-- <router-link to="/pageone">页面一</router-link> -->
       <router-link v-bind:to="{name:'PageOne',params:{username:'小明'}}">页面一</router-link>|
       <router-link v-bind:to="{name:'PageTwo',query:{username:'小刚'}}">页面二</router-link>｜
-      <router-link to="/pagethree/小红">页面三</router-link>
+      <router-link to="/pagethree/小红">页面三</router-link>|
+      <router-link to="/redirect/xiao">重定向</router-link>|
+      <router-link to="/detail">别名</router-link>
     </div>
     <router-view/>
   </div>
