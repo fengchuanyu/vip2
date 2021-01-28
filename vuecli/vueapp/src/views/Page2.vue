@@ -1,7 +1,9 @@
 <template>
     <div>
+        <h1>getter:{{$store.getters.sum}}</h1>
         <h1>{{$store.state.count}}</h1>
-        <button @click="$store.commit('add',2)">add</button>
+        <button @click="addHandle">add</button>
+        <button @click="reduceHandle">reduce</button>
         <h1>这是页面二</h1>
         <h1>用户名:{{$route.query.username}}</h1>
     </div>
@@ -15,7 +17,11 @@ export default {
     methods: {
         addHandle(){
             // ++this.$store.state.count
-            this.$store.commit('add',2)
+            this.$store.commit('add',{a:1,b:2})
+        },
+        reduceHandle(){
+            
+            this.$store.dispatch('reduceAction',2);
         }
     },
 }

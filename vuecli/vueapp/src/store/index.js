@@ -8,12 +8,23 @@ export default new Vuex.Store({
     count:1
   },
   mutations: {
-    add(state,num){
-      state.count += num;
+    add(state,payload){
+      console.log(payload);
+      state.count += payload.b;
+    },
+    reduce(state,payload){
+      state.count -= payload
     }
   },
   actions: {
-
+    reduceAction(context,payload){
+      context.commit('reduce',payload)
+    }
+  },
+  getters:{
+    sum(state){
+      return state.count + 100
+    }
   },
   modules: {
 
