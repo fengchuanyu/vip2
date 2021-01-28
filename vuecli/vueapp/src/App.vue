@@ -12,9 +12,12 @@
       <button @click="linkHandle">button跳转</button>
     </div>
     <div class="box">
-      <transition name="fade">
-        <router-view/>
-      </transition>
+      <!-- <transition name="fade"> -->
+        <keep-alive>
+          <router-view/>
+        </keep-alive>
+        
+      <!-- </transition> -->
     </div>
     
     
@@ -32,12 +35,22 @@ export default {
       //     username:"aaa"
       //   }
       // })
-      this.$router.push({
+      // this.$router.push({
+      //   path:"/pagetwo",
+      //   query:{
+      //     username:"bbb"
+      //   }
+      // })
+      this.$router.replace({
         path:"/pagetwo",
         query:{
           username:"bbb"
         }
       })
+      // this.$router.go(-2)
+      
+      // this.$route 
+      // this.$router
     }
   },
 }
