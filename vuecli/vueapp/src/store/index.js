@@ -22,7 +22,7 @@ export default new Vuex.Store({
   mutations: {
     add(state,payload){
       console.log(payload);
-      state.count += 1;
+      state.count += payload.b;
     },
     reduce(state){
       // state.count -= payload

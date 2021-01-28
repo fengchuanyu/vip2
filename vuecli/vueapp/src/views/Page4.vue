@@ -8,7 +8,7 @@
         <h1>{{sumi}}</h1>
         <h1>{{sum}}</h1>
         <!-- <button @click="$store.commit('add',{b:1})">add</button> -->
-        <button @click="add">add</button>
+        <button @click="addM({b:3})">add</button>
         <button @click="reduceAction">reduce</button>
     </div>
 </template>
@@ -21,9 +21,12 @@ export default {
         }
     },
     methods: {
-        ...mapMutations(['add']),
+        ...mapMutations({addM:'add'}),
         ...mapActions(['reduceAction']),
         testHandle(){
+
+        },
+        add(){
 
         }
     },
