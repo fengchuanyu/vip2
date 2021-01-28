@@ -3,17 +3,31 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+const moduleA = {
+  state:{
+    ma:1123
+  },
+  mutations:{
+    mAdd(state){
+      state.ma += 5
+    }
+  }
+}
+
 export default new Vuex.Store({
   state: {
-    count:1
+    count:1,
+    str:"hello"
   },
   mutations: {
     add(state,payload){
       console.log(payload);
-      state.count += payload.b;
+      state.count += 1;
     },
-    reduce(state,payload){
-      state.count -= payload
+    reduce(state){
+      // state.count -= payload
+      state.count -= 1
+
     }
   },
   actions: {
@@ -27,6 +41,6 @@ export default new Vuex.Store({
     }
   },
   modules: {
-
+    goods:moduleA
   }
 })
