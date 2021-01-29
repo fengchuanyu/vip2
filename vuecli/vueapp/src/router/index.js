@@ -59,6 +59,14 @@ const routes = [
     path:"/tvdetail/:id",
     name:"Detail",
     component: () => import('../views/Detail.vue')
+  },{
+    path:"/pagesix",
+    name:"PageSix",
+    component: () => import('../views/Page6.vue')
+  },{
+    path:"/pageseven",
+    name:"PageSeven",
+    component: () => import('../views/Page7.vue')
   }
   ,{
     path:'*',
