@@ -7,7 +7,22 @@
       <el-table-column prop="id" label="ID"> </el-table-column>
       <el-table-column prop="title" label="名称"> </el-table-column>
       <el-table-column prop="infotext" label="信息"> </el-table-column>
+      <el-table-column fixed="right" label="操作" width="100">
+        <template slot-scope="scope">
+          <el-button @click="goDeatil(scope.row)" type="text" size="small"
+            >查看</el-button
+          >
+        </template>
+      </el-table-column>
     </el-table>
+    <el-pagination
+      @current-change="changePage"
+      background
+      layout="prev, pager, next"
+      :total="totalNum"
+      :page-size="5"
+    >
+    </el-pagination>
     <!-- <ul>
         <li v-for="(item) in dataList" :key="item.id"> {{item.title}}</li>
     </ul> -->
@@ -18,21 +33,36 @@ import axios from "axios";
 export default {
   data() {
     return {
-      loading:false,
+      loading: false,
       dataList: [],
+      totalNum: 0,
     };
   },
   methods: {
-    testHandle(){
-
+    goDeatil(item) {
+      console.log(item);
+    //   this.$router.push({
+    //       path:"/tvdetail",
+    //       query:{
+    //           id:item.id
+    //       }
+    //   })
+    this.$router.push("/tvdetail/"+item.id)
     },
-    getData() {
-      this.loading = true;  
+    changePage(num) {
+      console.log(num);
+      this.getData((num - 1) * 5);
+    },
+    getData(start) {
+      this.loading = true;
       axios
         .get(
-          "https://bird.ioliu.cn/v2?url=https://m.douban.com/rexxar/api/v2/subject_collection/tv_domestic/items?start=0&count=5"
+          "https://bird.ioliu.cn/v2?url=https://m.douban.com/rexxar/api/v2/subject_collection/tv_domestic/items?start=" +
+            start +
+            "&count=5"
         )
         .then((res) => {
+          this.totalNum = res.data.total;
           console.log(res);
           let newArr = res.data.subject_collection_items.map((item) => {
             return {
@@ -49,7 +79,7 @@ export default {
   created() {
     // console.log(this.$route);
     // console.log(this.$router);
-    this.getData();
+    this.getData(0);
   },
 };
 </script>

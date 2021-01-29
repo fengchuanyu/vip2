@@ -15,9 +15,9 @@
     </div>
     <div class="box">
       <!-- <transition name="fade"> -->
-        <keep-alive>
+        <!-- <keep-alive> -->
           <router-view/>
-        </keep-alive>
+        <!-- </keep-alive> -->
         
       <!-- </transition> -->
     </div>
