@@ -29,7 +29,8 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+// import axios from "axios";
+import { getList } from "@/api/tv";
 export default {
   data() {
     return {
@@ -41,13 +42,13 @@ export default {
   methods: {
     goDeatil(item) {
       console.log(item);
-    //   this.$router.push({
-    //       path:"/tvdetail",
-    //       query:{
-    //           id:item.id
-    //       }
-    //   })
-    this.$router.push("/tvdetail/"+item.id)
+      //   this.$router.push({
+      //       path:"/tvdetail",
+      //       query:{
+      //           id:item.id
+      //       }
+      //   })
+      this.$router.push("/tvdetail/" + item.id);
     },
     changePage(num) {
       console.log(num);
@@ -55,25 +56,38 @@ export default {
     },
     getData(start) {
       this.loading = true;
-      axios
-        .get(
-          "https://bird.ioliu.cn/v2?url=https://m.douban.com/rexxar/api/v2/subject_collection/tv_domestic/items?start=" +
-            start +
-            "&count=5"
-        )
-        .then((res) => {
-          this.totalNum = res.data.total;
-          console.log(res);
-          let newArr = res.data.subject_collection_items.map((item) => {
-            return {
-              id: item.id,
-              title: item.title,
-              infotext: item.info + item.episodes_info,
-            };
-          });
-          this.dataList = newArr;
-          this.loading = false;
+      getList(start).then((res) => {
+        this.totalNum = res.data.total;
+        console.log(res);
+        let newArr = res.data.subject_collection_items.map((item) => {
+          return {
+            id: item.id,
+            title: item.title,
+            infotext: item.info + item.episodes_info,
+          };
         });
+        this.dataList = newArr;
+        this.loading = false;
+      });
+      //   axios
+      //     .get(
+      //       "https://bird.ioliu.cn/v2?url=https://m.douban.com/rexxar/api/v2/subject_collection/tv_domestic/items?start=" +
+      //         start +
+      //         "&count=5"
+      //     )
+      //     .then((res) => {
+      //       this.totalNum = res.data.total;
+      //       console.log(res);
+      //       let newArr = res.data.subject_collection_items.map((item) => {
+      //         return {
+      //           id: item.id,
+      //           title: item.title,
+      //           infotext: item.info + item.episodes_info,
+      //         };
+      //       });
+      //       this.dataList = newArr;
+      //       this.loading = false;
+      //     });
     },
   },
   created() {
