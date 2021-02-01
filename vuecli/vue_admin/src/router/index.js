@@ -177,6 +177,24 @@ export const constantRoutes = [
         meta: { title: '测试2', icon: 'form' }
       }
     ]
+  },{
+    path: '/level',
+    component: Layout,
+    meta: { title: '等级管理', icon: 'form' },
+    children: [
+      {
+        path: 'list',
+        name: 'LevelList',
+        component: () => import('@/views/level/list'),
+        meta: { title: '等级列表', icon: 'form' }
+      },
+      {
+        path: 'add',
+        name: 'LevelAdd',
+        component: () => import('@/views/level/add'),
+        meta: { title: '添加等级', icon: 'form' }
+      }
+    ]
   },
 
   // 404 page must be placed at the end !!!
