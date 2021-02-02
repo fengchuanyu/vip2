@@ -6,10 +6,10 @@
       ref="ruleForm"
       label-width="150px"
     >
-      <el-form-item label="活动名称" prop="name">
+      <el-form-item label="姓名" prop="name">
         <el-input v-model="ruleForm.name"></el-input>
       </el-form-item>
-      <el-form-item label="活动名称" prop="tel">
+      <el-form-item label="电话" prop="tel">
         <el-input v-model="ruleForm.tel"></el-input>
       </el-form-item>
       <el-form-item label="地址" prop="address">
@@ -32,9 +32,11 @@
       </el-form-item>
       <el-form-item label="上传头像">
         <el-upload
+          name="sfile"
           class="upload-demo"
-          action="https://jsonplaceholder.typicode.com/posts/"
+          action="http://47.92.82.13:4000/getMessageA"
           multiple
+          :on-success="sfileSuccess"
           :limit="1"
           :file-list="fileList"
         >
@@ -47,9 +49,11 @@
       <el-form-item label="上传微信二维码">
         <el-upload
           class="upload-demo"
-          action="https://jsonplaceholder.typicode.com/posts/"
+          action="http://47.92.82.13:4000/getMessageB"
           multiple
+          name="sweixin"
           :limit="1"
+          :on-success="weixinSuccess"
           :file-list="fileList"
         >
           <el-button size="small" type="primary">点击上传</el-button>
@@ -70,6 +74,7 @@
 <script>
 import { levelList } from "@/api/level"
 import { addressList } from '@/api/address'
+import { messageAdd } from '@/api/message'
 export default {
   data() {
     return {
@@ -82,6 +87,8 @@ export default {
         tel: "",
         address: "",
         level: "",
+        tcoin:'',
+        weixin:''
       },
       rules: {
         name: [{ required: true, message: "请输入活动名称", trigger: "blur" }],
@@ -95,6 +102,17 @@ export default {
       this.getSelData();
   },
   methods: {
+    // 头像上传成功
+    sfileSuccess(response){
+        this.ruleForm.tcoin = response.headerurl;
+    },
+    // 微信二维码上传
+    weixinSuccess(response){
+        console.log(response);
+        this.ruleForm.weixin = response.weixinurl
+    },
+    
+
     // 获取下拉列表信息
     getSelData(){
         this.loading = true;
@@ -123,9 +141,19 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert("submit!");
+         messageAdd({
+             uname:this.ruleForm.name,
+             addressid:this.ruleForm.address,
+             levelid:this.ruleForm.level,
+             tel:this.ruleForm.tel,
+             tcoin:this.ruleForm.tcoin,
+             weixin:this.ruleForm.weixin
+         }).then((res)=>{
+             console.log(res);
+             this.$router.push("/message/list")
+         })
         } else {
-          console.log("error submit!!");
+          this.$message.error('表单内容有误');
           return false;
         }
       });

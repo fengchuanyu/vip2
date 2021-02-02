@@ -7,3 +7,11 @@ export function messageList(){
         method:'get'
     })
 }
+// 添加信息
+export function messageAdd(data){
+    return request({
+        url:'/insertAllMessage',
+        method:'post',
+        data
+    })
+}
