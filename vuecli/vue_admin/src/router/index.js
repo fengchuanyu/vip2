@@ -228,7 +228,7 @@ export const constantRoutes = [
         path: 'add',
         name: 'MessageAdd',
         component: () => import('@/views/message/add'),
-        meta: { title: '添加添加', icon: 'form' }
+        meta: { title: '添加修改', icon: 'form' }
       }
     ]
   },

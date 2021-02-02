@@ -15,3 +15,11 @@ export function messageAdd(data){
         data
     })
 }
+// 根据地址筛选
+export function messageByAddress(data){
+    return request({
+        url:'/searchaddressid',
+        method:'post',
+        data
+    })
+}
