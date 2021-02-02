@@ -63,7 +63,10 @@
         </el-upload>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')"
+        <el-button v-if="isUpdata" type="primary" @click="updataForm('ruleForm')"
+          >立即修改</el-button
+        >
+        <el-button v-else type="primary" @click="submitForm('ruleForm')"
           >立即创建</el-button
         >
         <el-button @click="resetForm('ruleForm')">重置</el-button>
@@ -74,10 +77,11 @@
 <script>
 import { levelList } from "@/api/level"
 import { addressList } from '@/api/address'
-import { messageAdd } from '@/api/message'
+import { messageAdd,messageById,updataMessage } from '@/api/message'
 export default {
   data() {
     return {
+      isUpdata:false,
       fileList: [],
       loading:false,
       levelData:[],
@@ -100,15 +104,32 @@ export default {
   },
   created() {
       this.getSelData();
+      if(this.$route.query.id){
+        this.updataInit(this.$route.query.id)
+      }
   },
   methods: {
+    // 修改初始化
+    updataInit(id){
+      this.isUpdata = true;
+      messageById({id}).then((res)=>{
+        let _data = res.data.data[0]
+        this.ruleForm = {
+          name:_data.jrname,
+          tel:_data.jrtel,
+          address:_data.jraddressesid,
+          level:_data.jrlevel,
+          weixin:_data.weixin,
+          tcoin:_data.tcoin
+        }
+      })
+    },
     // 头像上传成功
     sfileSuccess(response){
         this.ruleForm.tcoin = response.headerurl;
     },
     // 微信二维码上传
     weixinSuccess(response){
-        console.log(response);
         this.ruleForm.weixin = response.weixinurl
     },
     
@@ -130,11 +151,30 @@ export default {
         })
 
         Promise.all([promiseLevel,promiseAddress]).then((res)=>{
-            console.log(res);
             this.loading = false
         })
         
         
+
+    },
+    // 提交修改
+    updataForm(formName){
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          updataMessage({
+            id:this.$route.query.id,
+            uname:this.ruleForm.name,
+            addressid:this.ruleForm.address,
+            levelid:this.ruleForm.level,
+            tel:this.ruleForm.tel
+          }).then((res)=>{
+            this.$router.push("/message/list")
+          })
+        }else{
+          this.$message.error('表单内容有误');
+          return false;
+        }
+      })
 
     },
     // 提交操作
@@ -149,7 +189,6 @@ export default {
              tcoin:this.ruleForm.tcoin,
              weixin:this.ruleForm.weixin
          }).then((res)=>{
-             console.log(res);
              this.$router.push("/message/list")
          })
         } else {

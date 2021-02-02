@@ -220,6 +220,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'list',
+
         name: 'MessageList',
         component: () => import('@/views/message/list'),
         meta: { title: '信息列表', icon: 'form' }

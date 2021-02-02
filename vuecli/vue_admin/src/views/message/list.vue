@@ -64,6 +64,15 @@ export default {
       this.getAddressData();
   },
   methods: {
+    // 修改按钮
+    updateBtn(item){
+      this.$router.push({
+        path:"/message/add",
+        query:{
+          id:item.jrid
+        }
+      })
+    },
     // 重置筛选
     resetSearch(){
       this.getMessageList()

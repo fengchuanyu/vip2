@@ -23,3 +23,19 @@ export function messageByAddress(data){
         data
     })
 }
+// 根据ID获取信息
+export function messageById(params){
+    return request({
+        url:'showOneMessage',
+        method:'get',
+        params
+    })
+}
+//修改信息
+export function updataMessage(data){
+    return request({
+        url:"updateMessage",
+        method:'post',
+        data
+    })
+}
