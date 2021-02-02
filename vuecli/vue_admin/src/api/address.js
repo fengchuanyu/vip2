@@ -15,3 +15,11 @@ export function addAddress(data){
         data
     })
 }
+// 删除地址
+export function delAddress(params){
+    return request({
+        url:'/delOneAddress',
+        method:'get',
+        params
+    })
+}

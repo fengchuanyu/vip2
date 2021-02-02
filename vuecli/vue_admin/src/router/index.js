@@ -213,6 +213,24 @@ export const constantRoutes = [
         meta: { title: '添加地址', icon: 'form' }
       }
     ]
+  },{
+    path: '/message',
+    component: Layout,
+    meta: { title: '信息管理', icon: 'form' },
+    children: [
+      {
+        path: 'list',
+        name: 'MessageList',
+        component: () => import('@/views/message/list'),
+        meta: { title: '信息列表', icon: 'form' }
+      },
+      {
+        path: 'add',
+        name: 'MessageAdd',
+        component: () => import('@/views/message/add'),
+        meta: { title: '添加添加', icon: 'form' }
+      }
+    ]
   },
 
   // 404 page must be placed at the end !!!
