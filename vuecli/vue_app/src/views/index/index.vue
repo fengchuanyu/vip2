@@ -8,7 +8,7 @@
                 <div class="bl_right">
                     <h3>{{item.addressname}}</h3>
                     <div class="bl_user">
-                        <User/>
+                        <User :id='item.addressid'/>
                     </div>
                 </div>
             </li>

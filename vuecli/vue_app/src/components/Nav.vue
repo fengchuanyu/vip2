@@ -57,7 +57,11 @@ export default {
 };
 </script>
 <style scoped>
+
 .nav-content .nav-header {
+  position: fixed;
+  top:0;
+  left: 0;
   height: 1rem;
   line-height: 1rem;
   width: 100%;
