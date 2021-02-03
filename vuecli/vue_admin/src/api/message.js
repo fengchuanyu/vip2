@@ -39,3 +39,11 @@ export function updataMessage(data){
         data
     })
 }
+// 删除信息 
+export function delMessage(params){
+    return request({
+        url:'delOneMessage',
+        method:'get',
+        params
+    })
+}

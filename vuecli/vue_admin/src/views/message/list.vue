@@ -4,8 +4,9 @@
       <el-form :inline="true" class="demo-form-inline">
         <el-form-item label="地址">
           <el-select v-model="addressId" placeholder="选择地址">
-            <el-option 
-              v-for="item in addressList" :key="item.addressid"
+            <el-option
+              v-for="item in addressList"
+              :key="item.addressid"
               :label="item.addressname"
               :value="item.addressid"
             ></el-option>
@@ -13,7 +14,7 @@
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="searchHandle">查询</el-button>
-          <el-button @click="resetSearch">重置</el-button>   
+          <el-button @click="resetSearch">重置</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -49,67 +50,92 @@
   </div>
 </template>
 <script>
-import {messageList,messageByAddress} from '@/api/message'
-import { addressList } from '@/api/address'
+import { messageList, messageByAddress, delMessage } from "@/api/message";
+import { addressList } from "@/api/address";
 export default {
   data() {
     return {
-      addressId:"",
+      addressId: "",
       messageList: [],
-      addressList:[],
+      addressList: [],
     };
   },
   created() {
-      this.getMessageList();
-      this.getAddressData();
+    this.getMessageList();
+    this.getAddressData();
   },
   methods: {
-    // 修改按钮
-    updateBtn(item){
-      this.$router.push({
-        path:"/message/add",
-        query:{
-          id:item.jrid
-        }
+    //删除信息
+    deleteBtn(item) {
+      this.$confirm("此操作将永久删除该记录, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
       })
+        .then(() => {
+          this.loading = true;
+          delMessage({ id: item.jrid }).then(() => {
+            this.getMessageList();
+            this.$message({
+              type: "success",
+              message: "删除成功!",
+            });
+            this.loading = false;
+          });
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消删除",
+          });
+        });
+    },
+    // 修改按钮
+    updateBtn(item) {
+      this.$router.push({
+        path: "/message/add",
+        query: {
+          id: item.jrid,
+        },
+      });
     },
     // 重置筛选
-    resetSearch(){
-      this.getMessageList()
+    resetSearch() {
+      this.getMessageList();
       this.addressId = "";
     },
     // 按地址筛选
-    searchHandle(){
-      messageByAddress({searchid:this.addressId}).then((res)=>{
+    searchHandle() {
+      messageByAddress({ searchid: this.addressId }).then((res) => {
         console.log(res);
         // res.data.data.map((item)=>{
         //   item.addressname
         // })
-        let thisAddressName = ""
-        this.addressList.map((item)=>{
-          if(item.addressid == this.addressId){
+        let thisAddressName = "";
+        this.addressList.map((item) => {
+          if (item.addressid == this.addressId) {
             thisAddressName = item.addressname;
           }
-        })
-         this.messageList = res.data.data.map((item)=>{
+        });
+        this.messageList = res.data.data.map((item) => {
           item.addressname = thisAddressName;
-          return item
-        })
-      })
+          return item;
+        });
+      });
     },
     // 获取地址列表
-    getAddressData(){
-      addressList().then((res)=>{
-        this.addressList = res.data.data
-      })
+    getAddressData() {
+      addressList().then((res) => {
+        this.addressList = res.data.data;
+      });
     },
     //   获取信息列表
-    getMessageList(){
-        messageList().then((res)=>{
-            console.log(res);
-            this.messageList = res.data.data
-        })
-    }
+    getMessageList() {
+      messageList().then((res) => {
+        console.log(res);
+        this.messageList = res.data.data;
+      });
+    },
   },
 };
 </script>
