@@ -1,17 +1,27 @@
 <template>
   <div id="app">
     <div id="nav">
-      <Nav></Nav>
+      <Nav :page='nPage'></Nav>
     </div>
-    <router-view />
+    <router-view @nowPage="changePage"/>
   </div>
 </template>
 <script>
 import Nav from '@/components/Nav.vue'
 export default {
+  data() {
+    return {
+      nPage:'index'
+    }
+  },
     components:{
       Nav
-    }
+    },
+    methods: {
+      changePage(page){
+        this.nPage = page
+      }
+    },
 }
 </script>
 <style>

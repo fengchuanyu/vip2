@@ -6,7 +6,7 @@
 <script>
 export default {
     mounted() {
-        console.log(this.$route);
+        this.$emit("nowPage",'users')
     },
 }
 </script>
