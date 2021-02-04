@@ -62,6 +62,7 @@ export default {
   position: fixed;
   top:0;
   left: 0;
+  z-index: 10;
   height: 1rem;
   line-height: 1rem;
   width: 100%;
@@ -72,6 +73,7 @@ export default {
 }
 .nav-content .nav-tab {
   display: flex;
+  z-index: 10;
   height: 1rem;
   background-color: #fff;
   width: 100%;

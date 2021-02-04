@@ -16,19 +16,25 @@
                     </div>
                     <div class="line-three">
                         <span class="users-tel">电话：{{item.jrtel}}</span>
-                        <div class="users-weixin">查看微信</div>
+                        <div class="users-weixin" @click="dialogShow(item)">查看微信</div>
                     </div>
                 </div>
             </li>
         </ul>
+        <!-- <Dialog :isShow='showDialog' @closeDialog='closeHandle'/> -->
+        <Dialog :isShow.sync='showDialog' :items='checkData'/>
+
     </div>
 </template>
 <script>
+import Dialog from './components/dialog'
 import {usersList} from '@/api/users'
 export default {
     data() {
         return {
-            usersData:[]
+            usersData:[],
+            showDialog:false,
+            checkData:{}
         }
     },
     mounted() {
@@ -36,6 +42,16 @@ export default {
         this.getUsersList();
     },
     methods: {
+        // 关闭弹框
+        closeHandle(){
+            this.showDialog = false
+        },
+        // 显示微信二维码
+        dialogShow(item){
+            this.showDialog = true;
+            this.checkData = item
+        },
+        // 判断是否显示图片
         formatUrl(url){
             if(url){
                 return url.includes('http')
@@ -51,6 +67,9 @@ export default {
             })
         }
     },
+    components:{
+        Dialog      
+    }
 }
 </script>
 <style scoped>
