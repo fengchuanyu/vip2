@@ -8,3 +8,10 @@ export function usersByBank(data){
         data
     })
 }
+// 获取职员列表
+export function usersList(){
+    return request({
+        url:'/showMessage',
+        method:'get',
+    })
+}
