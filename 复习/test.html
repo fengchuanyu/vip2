@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-    <h1 id="h">0</h1>
+<h1 id="h">0</h1>
+
 <body>
     <script>
-        var a = 0;
-        var oH1 = document.getElementById("h");
-        oH1.onclick = function(){
-            oH1.innerText = ++a;
-        }
-      
+        // var a = 0;
+        // var oH1 = document.getElementById("h");
+        // oH1.onclick = function(){
+        //     oH1.innerText = ++a;
+        // }
+
         // var a = [12,14];
         // var b = [13,16];
 
@@ -29,7 +30,22 @@
         //     return false
         // }
 
-        
+
+        window.name = "ByteDance";
+        class A {
+            constructor() {
+                this.name = 123;
+
+            }
+            getA() {
+                console.log(this);
+                return this.name + 1;
+            }
+        }
+        let a = new A();
+        a.getA();
+        let funcA = a.getA;
+        funcA()
 
     </script>
 </body>

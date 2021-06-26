@@ -1,5 +1,5 @@
-let a = 30;
-export default a;
+// let a = 30;
+// export default a;
 
 // let a = "hello";
 // let b = "world";
@@ -16,3 +16,14 @@ export default a;
 // export function foo(str){
 //     console.log(str);
 // }
+// var test = "hello";
+
+function foo(){
+    console.log(test);
+}
+// export {
+//     foo
+// }
+module.exports = {
+    foo
+}

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         // var obj = {
@@ -34,39 +36,88 @@
         // let arr = [1,2,3];
         // arr = new Proxy(arr,{
         //     get(target,prop){
-        //         // console.log(target,prop);
+        //         console.log(target,prop);
         //         return prop in target ?target[prop] : "error"
         //     }
         // })
         // console.log(arr[100]);
 
-    //    let obj = {
-    //        age:18,
-    //        school:"黑大"
-    //    }
-    //    obj = new Proxy(obj,{
-    //         get(target,prop){
-    //             // console.log(target,prop);
-    //             return prop in target ?target[prop] : "error"
-    //         }
-    //     })
-    //     console.log(obj.sex);
+        //    let obj = {
+        //        age:18,
+        //        school:"黑大"
+        //    }
+        //    obj = new Proxy(obj,{
+        //         get(target,prop){
+        //             // console.log(target,prop);
+        //             return prop in target ?target[prop] : "error"
+        //         }
+        //     })
+        //     console.log(obj.sex);
 
-    let arr = [];
-    let pro = new Proxy(arr,{
-        set(target,prop,val){
-            console.log(val);
-            if(typeof val == "number"){
-                target[prop] = val
-                return true
-            }else{
-                return false
-            }
-        }
-    })
-    // arr.push(1);
-    pro[0] = 1
-    console.log(arr);
+        // let arr = [];
+        // let pro = new Proxy(arr,{
+        //     set(target,prop,val){
+        //         console.log(val);
+        //         if(typeof val == "number"){
+        //             target[prop] = val
+        //             return true
+        //         }else{
+        //             return false
+        //         }
+        //     }
+        // })
+        // arr.push(1);
+        // pro[0] = 1
+        // console.log(arr);
+
+        // var handler = {
+        //     has(target, key) {
+        //         console.log(target,key);
+        //         if (key[0] === '_') {
+        //             return false;
+        //         }
+        //         return key in target;
+        //     }
+        // };
+        // var target = { _prop: 'foo', prop: 'foo' };
+        // var proxy = new Proxy(target, handler);
+        // console.log('_prop' in proxy);
+
+        // let target = {
+        //     a: 1,
+        //     b: 2,
+        //     c: 3
+        // };
+
+        // let handler = {
+        //     ownKeys(target) {
+        //         return ['a'];
+        //     }
+        // };
+
+        // let proxy = new Proxy(target, handler);
+
+
+        // console.log(Object.keys(proxy));
+
+        // var handler = {
+        //     deleteProperty(target, key) {
+        //         invariant(key, 'delete');
+        //         delete target[key];
+        //         return true;
+        //     }
+        // };
+        // function invariant(key, action) {
+        //     if (key[0] === '_') {
+        //         throw new Error(`Invalid attempt to ${action} private "${key}" property`);
+        //     }
+        // }
+
+        // var target = { _prop: 'foo' };
+        // var proxy = new Proxy(target, handler);
+        // delete proxy._prop
+
     </script>
 </body>
+
 </html>

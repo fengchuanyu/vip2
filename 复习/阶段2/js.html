@@ -86,7 +86,27 @@
         // test();
         // test();
 
-
+        new Promise((resolve,reject)=>{
+            resolve("123")
+        }).then((res)=>{
+            console.log(res);
+            return "1111"
+        }).then((res)=>{
+            
+                console.log(1,res);
+            return "2222"
+        }).then((res)=>{
+            console.log(2,res);
+            return "3333"
+        }).then((res)=>{
+            console.log(3,res);
+            return "4444"
+        }).then((res)=>{
+            console.log(4,res);
+            return "5555"
+        }).then((res)=>{
+            console.log(5,res);
+        })
 
 
     </script>
